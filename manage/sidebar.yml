@@ -1,0 +1,96 @@
+---
+section: manage
+title: Gestione herramientas de ONTAP para VMware vSphere
+entries:
+- title: Información general de las herramientas de ONTAP para la consola de VMware
+    vSphere
+  url: "/configure/dashboard-overview.html"
+- title: Interfaz de usuario del gestor de herramientas de ONTAP
+  url: "/configure/manager-user-interface.html"
+- title: Habilite herramientas de ONTAP para los servicios de VMware vSphere
+  url: "/manage/enable-services.html"
+- title: Cambie la configuración de las herramientas de ONTAP para VMware vSphere
+  url: "/manage/edit-appliance-settings.html"
+- title: Gestionar almacenes de datos
+  entries:
+  - title: Montar NFS y almacén de datos VMFS
+    url: "/manage/mount-datastores-on-host.html"
+  - title: Desmonte NFS y el almacén de datos de VMFS
+    url: "/manage/unmount-datastores-on-host.html"
+  - title: Monte un almacén de datos vVols
+    url: "/manage/mount-a-vvols-datastore.html"
+  - title: Cambie el tamaño de NFS y almacén de datos VMFS
+    url: "/manage/resize-datastores.html"
+  - title: Expanda el almacén de datos de VVol
+    url: "/manage/expand-storage-of-vvol-datastore.html"
+  - title: Reducir el almacén de datos vVols
+    url: "/manage/remove-storage-from-a-vvols-datastore.html"
+  - title: Eliminar almacenes de datos
+    url: "/manage/delete-ds.html"
+  - title: Vistas de almacenamiento ONTAP para almacenes de datos
+    url: "/manage/storage-view-datastore.html"
+  - title: Vista de almacenamiento de equipos virtuales
+    url: "/manage/virtual-machine-storage-view-datastore.html"
+- title: Gestione los umbrales de almacenamiento
+  url: "/manage/manage-storage-threshold.html"
+- title: Gestione los back-ends de almacenamiento
+  url: "/manage/storage-backend.html"
+- title: Gestione instancias de vCenter Server
+  url: "/manage/manage-vcenter.html"
+- title: Gestionar certificados
+  url: "/manage/certificate-manage.html"
+- title: Acceda a las herramientas de ONTAP para la consola de mantenimiento de VMware
+    vSphere
+  entries:
+  - title: Descripción general de las herramientas de ONTAP para la consola de mantenimiento
+      de VMware vSphere
+    url: "/manage/maintenance-console.html"
+  - title: Configurar el acceso de diagnóstico remoto
+    url: "/manage/configure-remote-diagnostic-access.html"
+  - title: Inicie SSH en otros nodos
+    url: "/manage/start-the-ssh-on-other-nodes.html"
+  - title: Actualice las credenciales de vCenter Server y ONTAP
+    url: "/manage/update-vcenter-credentials.html"
+- title: Informes de herramientas de ONTAP
+  url: "/manage/reports.html"
+- title: Recoja los archivos de registro
+  url: "/manage/collect-the-log-files.html"
+- title: Gestión de máquinas virtuales
+  entries:
+  - title: Consideraciones para migrar o clonar máquinas virtuales
+    url: "/manage/migrate-virtual-machines.html"
+  - title: Migre máquinas virtuales con almacenes de datos NFS y VMFS a almacenes
+      de datos vVols
+    url: "/manage/migrate-standard-virtual-machines-to-vvols-datastores.html"
+  - title: Limpieza de VASA
+    url: "/manage/delete-virtual-machines.html"
+- title: Detectar sistemas de almacenamiento y hosts
+  url: "/configure/discover-storage-systems-and-hosts.html"
+- title: Modifique la configuración del host ESXi
+  url: "/manage/edit-esxi-host-settings.html"
+- title: Gestionar contraseñas
+  entries:
+  - title: Cambiar la contraseña del Administrador de herramientas de ONTAP
+    url: "/manage/change-manager-password.html"
+  - title: Restablezca la contraseña del administrador de herramientas de ONTAP
+    url: "/manage/reset-manager-password.html"
+  - title: Restablecer contraseña de usuario de aplicación
+    url: "/manage/reset-app-password.html"
+  - title: Restablezca la contraseña de usuario de la consola de mantenimiento
+    url: "/manage/reset-maint-password.html"
+- title: Gestione la protección del clúster de hosts
+  entries:
+  - title: Modificar la protección del clúster de hosts
+    url: "/manage/edit-hostcluster-protection.html"
+  - title: Quite la protección del clúster de hosts
+    url: "/manage/delete-hostcluster-protection.html"
+- title: Deshabilite AutoSupport
+  url: "/manage/disable-autosupport.html"
+- title: Actualice la URL del proxy de AutoSupport
+  url: "/manage/update-proxyurl.html"
+- title: Crear copia de seguridad y recuperar la configuración
+  url: "/manage/enable-backup.html"
+- title: Desinstale las herramientas de ONTAP para VMware vSphere
+  url: "/manage/uninstall-deployment.html"
+- title: Quite volúmenes FlexVol
+  url: "/manage/delete-deployment.html"

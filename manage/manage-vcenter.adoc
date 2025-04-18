@@ -1,0 +1,63 @@
+---
+permalink: manage/manage-vcenter.html 
+sidebar: sidebar 
+keywords:  
+summary: Las instancias de vCenter son plataformas de gestión central que le permiten controlar hosts, equipos virtuales y back-ends de almacenamiento. 
+---
+= Gestione instancias de vCenter Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las instancias de vCenter Server son plataformas de gestión central que permiten controlar hosts, máquinas virtuales y back-ends de almacenamiento.
+
+
+
+== Disocie los back-ends de almacenamiento con la instancia de vCenter Server
+
+La página enumerada de vCenter Server muestra el número asociado de back-ends de almacenamiento. Cada instancia de vCenter Server tiene la opción de asociar o desasociar con un back-end de almacenamiento.
+
+.Pasos
+. Inicie ONTAP TOOLS Manager desde un explorador web: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Inicie sesión con las herramientas de ONTAP para las credenciales de administrador de VMware vSphere que proporcionó durante la implementación.
+. Seleccione la instancia de vCenter Server requerida en la barra lateral.
+. Seleccione los tres puntos verticales en la instancia de vCenter Server que desea asociar o disociar con los back-ends de almacenamiento.
+. Seleccione *Dissociar backend de almacenamiento*.
+
+
+
+
+== Modifique una instancia de vCenter Server
+
+Siga los pasos a continuación para modificar las instancias de vCenter Server.
+
+. Inicie ONTAP TOOLS Manager desde un explorador web: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Inicie sesión con las herramientas de ONTAP para las credenciales de administrador de VMware vSphere que proporcionó durante la implementación.
+. Seleccione la instancia de vCenter Server aplicable en la barra lateral
+. Seleccione los tres puntos verticales en la instancia de vCenter Server que desea modificar y seleccione *Modify*.
+. Modifique los detalles de la instancia de vCenter Server y seleccione *Modify*.
+
+
+
+
+== Quite una instancia de vCenter Server
+
+Debe quitar todos los back-ends de almacenamiento conectados a vCenter Server antes de quitarlos.
+
+. Inicie ONTAP TOOLS Manager desde un explorador web: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Inicie sesión con las herramientas de ONTAP para las credenciales de administrador de VMware vSphere que proporcionó durante la implementación.
+. Seleccione las instancias de vCenter Server aplicables en la barra lateral
+. Seleccione los tres puntos verticales en la instancia de vCenter Server que desea quitar y seleccione *Quitar*.
++
+
+NOTE: Una vez que se eliminan las instancias de vCenter Server, la aplicación ya no las mantendrá.
+
+
+
+Cuando se quitan las instancias de vCenter Server en las herramientas de ONTAP, las siguientes acciones se ejecutan automáticamente:
+
+* El plugin se ha cancelado del registro.
+* Se quitaron los privilegios de plugins y los roles de plugins.
+

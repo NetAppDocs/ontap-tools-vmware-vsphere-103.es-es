@@ -1,0 +1,22 @@
+---
+permalink: manage/delete-hostcluster-protection.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: Cuando se quita la protección del clúster de hosts, los almacenes de datos se vuelven desprotegidos. 
+---
+= Quite la protección del clúster de hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se quita la protección del clúster de hosts, los almacenes de datos se vuelven desprotegidos.
+
+.Pasos
+. Para ver los clústeres de hosts protegidos, navegue hasta *Herramientas de NetApp ONTAP* > *Protección* > *Relaciones de clúster de host*.
++
+En esta página, se pueden supervisar los clústeres de hosts protegidos junto con su estado de protección, la relación de SnapMirror y el estado SnapMirror correspondiente.
+
+. En la ventana *Protección del clúster de host*, seleccione el menú de puntos suspensivos contra el clúster y, a continuación, seleccione *Eliminar protección*.
+

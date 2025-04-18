@@ -1,0 +1,110 @@
+---
+permalink: configure/configure-esx-server-multipath-and-timeout-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: Las herramientas de ONTAP para VMware vSphere comprueba y establece los ajustes multivía del host ESXi y los ajustes de tiempo de espera de HBA que funcionan mejor con los sistemas de almacenamiento de NetApp. 
+---
+= Configure los ajustes del host ESXi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configuración de los ajustes de tiempo de espera y multivía del servidor ESXi garantiza una alta disponibilidad e integridad de los datos, ya que permite cambiar sin problemas a una ruta de almacenamiento de backup en caso de que falle una ruta primaria.
+
+
+
+== Configure los ajustes de multivía y tiempo de espera del servidor ESXi
+
+Las herramientas de ONTAP para VMware vSphere comprueban y establecen la configuración de multivía del host ESXi y el tiempo de espera de HBA que funcionan mejor con los sistemas de almacenamiento de NetApp.
+
+*Acerca de esta tarea*
+
+Dependiendo de la configuración y la carga del sistema, este proceso puede tardar mucho tiempo. El progreso de la tarea se muestra en el panel Recent Tasks.
+
+.Pasos
+. En la página de inicio de VMware vSphere Web Client, seleccione *Hosts and Clusters*.
+. Haga clic con el botón derecho en un host y seleccione *Herramientas de NetApp ONTAP* > *Actualizar datos de host*.
+. En la página de accesos directos del cliente web de VMware vSphere, seleccione *NetApp ONTAP tools* en la sección de plugins.
+. Vaya a la tarjeta *Conformidad de host ESXi* en la descripción general (consola) de las herramientas de ONTAP para el complemento de VMware vSphere.
+. Selecciona *Aplicar ajustes recomendados* link.
+. En la ventana *Aplicar configuración de host recomendada*, selecciona los hosts que deseas actualizar para cumplir con la configuración recomendada de NetApp y selecciona *Siguiente*.
++
+
+NOTE: Puede expandir el host ESXi para ver los valores actuales.
+
+. En la página settings, seleccione los valores recomendados según sea necesario.
+. En el panel de resumen, compruebe los valores y seleccione *Finalizar*. Puede realizar un seguimiento del progreso en el panel de tareas recientes.
+
+
+
+
+== Configure los valores de host ESXi
+
+Con las herramientas de ONTAP para VMware vSphere, puede establecer tiempos de espera y otros valores en los hosts ESXi para garantizar el mejor rendimiento y una conmutación al respaldo correcta. Los valores que las herramientas ONTAP para conjuntos de VMware vSphere se basan en las pruebas internas de NetApp.
+
+Puede configurar los siguientes valores en un host ESXi:
+
+
+
+=== Configuración del adaptador de HBA/CNA
+
+Configura los ajustes de tiempo de espera recomendados del adaptador de bus de host para los sistemas de almacenamiento de NetApp.
+
+|===
+| Parámetros | Definir este valor en... 
+
+
+| Disk.QFullSampleSize | 32 para todas las configuraciones. Si configura este valor, se evitan los errores de I/O. 
+
+
+| Disk.QFullThreshold | 8 para todas las configuraciones. Si configura este valor, se evitan los errores de I/O. 
+
+
+| Tiempos de espera de FC HBA de Emulex | Valor predeterminado. 
+
+
+| Tiempos de espera de HBA FC de QLogic | Valor predeterminado. 
+|===
+
+
+=== Configuración DE MPIO
+
+La configuración de MPIO define las rutas preferidas para los sistemas de almacenamiento de NetApp. Determinan cuáles de las rutas disponibles están optimizadas (en contraposición a las rutas no optimizadas que atraviesan el cable de interconexión) y establecen la ruta preferida en una de esas rutas.
+
+En entornos de alto rendimiento, o cuando esté probando el rendimiento con un único almacén de datos LUN, considere la posibilidad de cambiar la configuración del equilibrio de carga de la política de selección de ruta (PSP) round-robin (VMW_PSP_RR) de la configuración de IOPS predeterminada de 1000 a un valor de 1.
+
+
+
+=== Configuración de NFS
+
+|===
+
+
+| Parámetro | Definir este valor en... 
+
+
+| NET.TcpipHeapSize | 32 
+
+
+| NET.TcpipHeapMax | 1024MB 
+
+
+| NFS.MaxVolumes | 256 
+
+
+| NFS41.MaxVolumes | 256 
+
+
+| NFS.MaxQueueDepth | 128 o superior 
+
+
+| NFS.HeartbeatMaxFailures | 10 
+
+
+| NFS.HeartbeatFrequency | 12 
+
+
+| NFS.HeartbeatTimeout | 5 
+|===

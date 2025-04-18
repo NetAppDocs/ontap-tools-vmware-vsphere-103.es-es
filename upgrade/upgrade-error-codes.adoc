@@ -1,0 +1,161 @@
+---
+permalink: upgrade/upgrade-error-codes.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: En esta página, se describen los códigos de error para la operación de actualización de las herramientas de ONTAP para el sistema VMware vSphere. 
+---
+= Actualizar códigos de error
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que encuentre códigos de error durante la operación de actualización de VMware vSphere en las herramientas de ONTAP. Los códigos de error tienen una longitud de cinco dígitos, donde los dos primeros dígitos representan el script que encontró el problema, y los tres últimos dígitos representan el flujo de trabajo específico dentro de ese script.
+
+Todos los registros de errores se registran en el archivo ansible-perl-errors.log para facilitar el seguimiento y la resolución de los problemas. Este archivo de registro contiene el código de error y la tarea de Ansible con errores.
+
+
+NOTE: Los códigos de error proporcionados en esta página son sólo de referencia. Póngase en contacto con el equipo de soporte si el error persiste o si no se menciona ninguna solución.
+
+En la siguiente tabla se enumeran los códigos de error y los nombres de archivo correspondientes.
+
+|===
+
+
+| *Código de error* | *Nombre del script* 
+
+
+| 00 | firstboot-network-config.pl, despliegue del modo 
+
+
+| 01 | firstboot-network-config.pl, actualización del modo 
+
+
+| 02 | firstboot-inputs-validation.pl 
+
+
+| 03 | firstboot-deploy-otv-ng.pl: Puesta en marcha, alta disponibilidad 
+
+
+| 04 | firstboot-deploy-otv-ng.pl TB, puesta en marcha, no alta disponibilidad 
+
+
+| 05 | firstboot-deploy-otv-ng.pl, reiniciar 
+
+
+| 06 | firstboot-deploy-otv-ng.pl, actualización, alta disponibilidad 
+
+
+| 07 | firstboot-deploy-otv-ng.pl, actualización, no alta disponibilidad 
+
+
+| 08 | firstboot-otv-recovery.pl 
+
+
+| 09 | post-deploy-upgrade.pl 
+|===
+Los últimos tres dígitos del código de error indican el error de flujo de trabajo específico dentro del script:
+
+|===
+
+
+| *Código de error de actualización* | *Flujo de trabajo* | *Resolución* 
+
+
+| 068 | Error al revertir los paquetes Debian | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 069 | No se pudieron restaurar los archivos | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 070 | Error al eliminar el backup | - 
+
+
+| 071 | El clúster de Kubernetes no estaba en buen estado | - 
+
+
+| 074 | El montaje ISO ha fallado | Compruebe /var/log/upgrade-run.log y vuelva a intentar la actualización. 
+
+
+| 075 | Fallo en las comprobaciones previas de la actualización | Vuelva a intentar la actualización. 
+
+
+| 076 | Fallo al actualizar el registro | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 077 | Error al revertir el registro | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 078 | Fallo al actualizar el operador | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 079 | Fallo al revertir el operador | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 080 | Fallo al actualizar los servicios | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 081 | Error al revertir los servicios | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 082 | Error al eliminar las imágenes antiguas del contenedor | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 083 | Fallo al suprimir la copia de seguridad | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 084 | Fallo al volver a cambiar JobManager a producción | Siga los pasos que se indican a continuación para recuperar/completar la actualización. 1. Active el shell de diagnóstico 2. Ejecute el comando: _Sudo perl /home/maint/scripts/post-deploy-upgrade.pl --postupgrade_ 3. Consulte los registros en /var/log/post-deploy-upgrade.log 
+
+
+| 087 | Fallo en los pasos posteriores a la actualización. | Realice los siguientes pasos para recuperar/completar la actualización. 1. Active el shell de diagnóstico 2. Ejecute _sudo perl /home/maint/scripts/post-deploy-upgrade.pl --postupgrade_ comando 3. Consulte los registros en /var/log/post-deploy-upgrade.log 
+
+
+| 088 | Fallo al configurar la rotación de log para el diario | Compruebe la configuración de red de la máquina virtual compatible con el host en el que se aloja la máquina virtual. Puede intentar migrar la máquina virtual a otro host y reiniciarla. 
+
+
+| 089 | Fallo al cambiar la propiedad del archivo de configuración de rotación de registro de resumen | Vuelva a intentar la actualización. 
+
+
+| 093 | Se produjo un error en la actualización del aprovisionador de almacenamiento dinámico | Vuelva a intentar la actualización. 
+
+
+| 094 | Se ha producido un error en la reversión del aprovisionador de almacenamiento dinámico | Vuelva a intentar la actualización. 
+
+
+| 095 | Error en la actualización del SO | Sin recuperación para la actualización del sistema operativo. Los servicios de herramientas de ONTAP se han renovado y se ejecutarán nuevos pods. 
+
+
+| 096 | Instale el aprovisionador de almacenamiento dinámico | Compruebe los registros de actualización y vuelva a intentar la actualización. 
+
+
+| 097 | Se ha producido un error al desinstalar los servicios para la actualización | Utilice la recuperación basada en Snapshot o objetivo de punto de recuperación cero y vuelva a intentar la actualización. 
+
+
+| 098 | se ha producido un error al copiar el secreto dockercred del sistema ntv en el espacio de nombres del aprovisionador de almacenamiento dinámico | Compruebe los registros de actualización y vuelva a intentar la actualización. 
+
+
+| 099 | No se pudo validar la adición del nuevo HDD | Añada el nuevo HDD a todos los nodos en caso de alta disponibilidad y a un nodo en caso de puesta en marcha distinta de alta disponibilidad. 
+
+
+| 108 | Fallo al iniciar el script | - 
+
+
+| 109 | no se pudo realizar el backup de los datos de volumen persistente | Compruebe los registros de actualización y vuelva a intentar la actualización. 
+
+
+| 110 | no se pudieron restaurar datos del volumen persistente | Utilice la recuperación basada en RPO o Snapshot cero y vuelva a intentar la actualización. 
+
+
+| 111 | Fallo al actualizar los parámetros de tiempo de espera de ETCD para RKE2 | Compruebe los registros de actualización y vuelva a intentar la actualización. 
+
+
+| 112 | Se produjo un error en la desinstalación del aprovisionador de almacenamiento dinámico | - 
+
+
+| 113 | Error al actualizar los recursos en los nodos secundarios | Compruebe los registros de actualización y vuelva a intentar la actualización. 
+|===
+
+NOTE: Las herramientas de ONTAP para VMware vSphere 10,3 admiten un objetivo de punto de recuperación cero.
+
+Más información acerca de https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/How_to_restore_ONTAP_tools_for_VMware_vSphere_if_upgrade_fails_from_version_10.0_to_10.1["Cómo restaurar las herramientas de ONTAP para VMware vSphere si la actualización falla de la versión 10,0 a 10,1"]

@@ -1,0 +1,28 @@
+---
+permalink: protect/enable-storage-replication-adapter.html 
+sidebar: sidebar 
+keywords:  
+summary: Las herramientas de ONTAP para VMware vSphere ofrecen la opción de habilitar la funcionalidad del SRA de configurar la recuperación ante desastres. 
+---
+= Habilite SRA para proteger almacenes de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las herramientas de ONTAP para VMware vSphere ofrecen la opción de habilitar la funcionalidad del SRA de configurar la recuperación ante desastres.
+
+.Antes de empezar
+* Debe haber configurado la instancia de vCenter Server y el host ESXi.
+* Debe haber puesto en marcha herramientas de ONTAP para VMware vSphere.
+* Debería haber descargado `.tar.gz` el archivo SRA Adapter de la https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab["Sitio de soporte de NetApp"^].
+* Los clústeres de ONTAP de origen y de destino deben tener las mismas programaciones de SnapMirror personalizadas creadas antes de ejecutar los flujos de trabajo de SRA.
+
+
+.Pasos
+. Inicie sesión en la interfaz de gestión del dispositivo VMware Live Site Recovery mediante la URL `\https://:<srm_ip>:5480`: Y, a continuación, vaya a Adaptadores de replicación de almacenamiento en la interfaz de gestión del dispositivo VMware Live Site Recovery.
+. Seleccione *Nuevo adaptador*.
+. Cargue el instalador _.tar.gz_ para el plugin de SRA en Live Site Recovery de VMware.
+. Vuelva a analizar los adaptadores para verificar que los detalles se hayan actualizado en la página Adaptadores de replicación de almacenamiento de recuperación de sitio activo de VMware.
+

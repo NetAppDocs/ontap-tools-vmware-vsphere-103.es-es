@@ -1,0 +1,20 @@
+---
+permalink: manage/reports.html 
+sidebar: sidebar 
+keywords:  
+summary: Las herramientas de ONTAP para el plugin de VMware vSphere proporcionan informes para máquinas virtuales y almacenes de datos. 
+---
+= Informes de herramientas de ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las herramientas de ONTAP para el plugin de VMware vSphere proporcionan informes para máquinas virtuales y almacenes de datos. Cuando se selecciona el icono del plugin de las herramientas de NetApp ONTAP para VMware vSphere en la sección de accesos directos del cliente de vCenter, la interfaz de usuario navega hasta la página Overview. Seleccione la pestaña Reports para ver la máquina virtual y el informe de almacenes de datos.
+
+El informe de máquinas virtuales muestra la lista de máquinas virtuales detectadas (deben tener al menos un disco de los almacenes de datos basados en almacenamiento de ONTAP) con métricas de rendimiento. Cuando se expande el registro de la máquina virtual, se muestra toda la información del almacén de datos relacionada con el disco.
+
+El informe datastores muestra la lista de herramientas de ONTAP detectadas o reconocidas para almacenes de datos gestionados de VMware vSphere que se aprovisionan desde el back-end de almacenamiento ONTAP de todos los tipos con métricas de rendimiento.
+
+Puede utilizar la opción Gestionar columnas para ocultar o mostrar columnas diferentes.

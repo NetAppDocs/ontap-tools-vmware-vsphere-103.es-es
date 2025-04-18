@@ -1,0 +1,31 @@
+---
+permalink: protect/verify-the-replicated-storage-environment.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Debe verificar que el sitio protegido y el sitio de recuperación se hayan emparejado correctamente después de configurar el adaptador de replicación de almacenamiento \(SRA\). El sistema de almacenamiento replicado debe ser detectable tanto por el sitio protegido como por el sitio de recuperación.' 
+---
+= Compruebe los sistemas de almacenamiento replicados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe verificar que el sitio protegido y el sitio de recuperación se hayan emparejado correctamente después de configurar Storage Replication Adapter (SRA). El sistema de almacenamiento replicado debe ser detectable tanto por el sitio protegido como por el sitio de recuperación.
+
+*Antes de empezar*
+
+* Debe haber configurado el sistema de almacenamiento.
+* Debe haber emparejado el sitio protegido y el sitio de recuperación mediante el administrador de la cabina Live Site Recovery de VMware.
+* Debe haber habilitado la licencia de FlexClone y la licencia de SnapMirror antes de realizar la operación de prueba de conmutación por error y la operación de conmutación por error para SRA.
+* Debe tener las mismas políticas y las mismas programaciones de SnapMirror en los sitios de origen y de destino.
+
+
+.Pasos
+. Inicie sesión en vCenter Server.
+. Vaya a *Site Recovery* > *Array Based Replication*.
+. Seleccione la pareja de cabinas requerida y verifique los detalles correspondientes.
++
+Los sistemas de almacenamiento deben ser descubiertos en el sitio protegido y el sitio de recuperación con el estado “habilitado”.
+
+

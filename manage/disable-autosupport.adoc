@@ -1,0 +1,25 @@
+---
+permalink: manage/disable-autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: Cuando se configura por primera vez el sistema de almacenamiento, se habilita AutoSupport de manera predeterminada. Envía mensajes al soporte técnico 24 horas después de que está habilitado. 
+---
+= Deshabilite AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se configura por primera vez el sistema de almacenamiento, se habilita AutoSupport de manera predeterminada. Envía mensajes al soporte técnico 24 horas después de que está habilitado. Al deshabilitar AutoSupport, ya no recibirá soporte y supervisión proactivos.
+
+
+NOTE: Se recomienda mantener la función AutoSupport habilitada. Ayuda a acelerar la detección y resolución de problemas. El sistema recopila información de AutoSupport y la almacena localmente, incluso cuando está desactivada.
+
+.Pasos
+. Desde vCenter Server, abra la consola de mantenimiento.
+. Inicie sesión como el usuario de mantenimiento.
+. Introduzca 1 para seleccionar *Configuración de la aplicación*.
+. Ingrese 3 para seleccionar *Deshabilitar AutoSupport*.
+. Introduzca y en el cuadro de diálogo de confirmación.
+

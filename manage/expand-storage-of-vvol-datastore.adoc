@@ -1,0 +1,25 @@
+---
+permalink: manage/expand-storage-of-vvol-datastore.html 
+sidebar: sidebar 
+keywords: virtual volume datastores 
+summary: Cuando hace clic con el botón derecho en el objeto del almacén de datos en la vista de objetos de vCenter, las acciones admitidas de las herramientas de ONTAP para VMware vSphere se muestran en la sección sobre plugins. 
+---
+= Expanda el almacén de datos de vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando hace clic con el botón derecho en el objeto del almacén de datos en la vista de objetos de vCenter, las acciones admitidas de las herramientas de ONTAP para VMware vSphere se muestran en la sección sobre plugins. Se habilitan acciones específicas según el tipo de almacén de datos y los privilegios de usuario actuales.
+
+
+NOTE: La operación de expandir el almacén de datos vVols no es aplicable para el almacén de datos vVols basado en ASA R2.
+
+.Pasos
+. En la página inicial de vSphere Client, seleccione *Hosts and Clusters*.
+. En el panel de navegación, seleccione el centro de datos que contiene el almacén de datos.
+. Haga clic con el botón derecho en el almacén de datos y seleccione *Herramientas de NetApp ONTAP* > *Añadir almacenamiento al almacén de datos*.
+. En la ventana *crear o seleccionar volúmenes*, puede crear nuevos volúmenes o elegir entre los volúmenes existentes. La interfaz de usuario es autoexplicativa. Siga las instrucciones según su elección.
+. En la ventana *Resumen*, revise las selecciones y seleccione *Expandir*. Puede realizar un seguimiento del progreso en el panel de tareas recientes.
+

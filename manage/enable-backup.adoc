@@ -1,0 +1,74 @@
+---
+permalink: manage/enable-backup.html 
+sidebar: sidebar 
+keywords:  
+summary: Dado que las herramientas de ONTAP para VMware vSphere 10,3 utilizan un aprovisionador de almacenamiento dinámico, no puede lograr un objetivo de punto de recuperación cero. Sin embargo, puede lograr casi un objetivo de punto de recuperación cero. 
+---
+= Crear copia de seguridad y recuperar la configuración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dado que las herramientas de ONTAP para VMware vSphere 10,3 utilizan un aprovisionador de almacenamiento dinámico, no puede lograr un objetivo de punto de recuperación cero. Sin embargo, puede lograr casi un objetivo de punto de recuperación cero. Para alcanzar un objetivo de punto de recuperación casi cero, es necesario crear un backup de la configuración y restaurarlo en una nueva máquina virtual.
+
+
+
+== Cree una copia de seguridad y descargue el archivo de copia de seguridad
+
+.Pasos
+. Desde vCenter Server, abra la consola de mantenimiento.
+. Inicie sesión como el usuario de mantenimiento.
+. Ingrese `4` para seleccionar *Soporte y Diagnóstico*.
+. Ingrese `3` para seleccionar la opción *Habilitar copia de seguridad del sistema*.
+. En caso de no alta disponibilidad, introduzca las credenciales de vCenter donde se implementa la máquina virtual de herramientas de ONTAP.
+. Introduzca el valor de frecuencia de backup entre 5-60 minutos.
+. Pulse *Intro*
++
+Esto crea el backup y lo lleva al almacén de datos de la máquina virtual a un intervalo regular.
+
+. Para acceder al backup, desplácese hasta la sección de almacenamiento y seleccione el almacén de datos de la máquina virtual
+. Seleccione la sección *Archivos*.
++
+En la sección de archivos, puede ver el directorio. El nombre del directorio será la dirección IP de las herramientas de ONTAP donde los puntos (.) se sustituyen por guiones bajos, sufijos con _backup_.
+
+. Para obtener más información sobre la copia de seguridad, descargue el archivo backup_info.txt desde *Archivos* > *Descargar*.
+
+
+
+
+== Recuperación
+
+Para recuperar la configuración, apague la máquina virtual existente e implemente una máquina virtual nueva usando el OVA utilizado en la implementación inicial.
+
+Debe utilizar la misma dirección IP de herramientas de ONTAP (IP de equilibrador de carga) para la máquina virtual nueva y la configuración del sistema, como los servicios habilitados, el tamaño de nodo y el modo de alta disponibilidad, debe ser la misma que la puesta en marcha inicial.
+
+Realice los siguientes pasos para recuperar la configuración desde el archivo de copia de seguridad.
+
+. Desde vCenter Server, abra la consola de mantenimiento.
+. Inicie sesión como el usuario de mantenimiento.
+. Ingrese `4` para seleccionar *Soporte y Diagnóstico*.
+. Ingrese `2` para seleccionar la opción *Activar acceso a diagnóstico remoto* y crear una nueva contraseña para el acceso de diagnóstico.
+. Seleccione cualquier copia de seguridad del directorio descargado. El último nombre de archivo de copia de seguridad se registra en el archivo _backup_info.txt_.
+. Ejecute el siguiente comando para copiar la copia de seguridad en la nueva máquina virtual e introduzca la contraseña de diagnóstico cuando se le solicite.
++
+[listing]
+----
+scp <Backup_X.tar.enc> diag@<node_ip>:/home/diag/system_recovery.tar.enc
+----
++
+
+NOTE: No modifique la ruta de destino y el nombre del archivo (/home/diag/system_recovery.tar.enc) mencionados en el comando.
+
+. Después de copiar el archivo de copia de seguridad, inicie sesión en el shell de diagnóstico y ejecute el siguiente comando:
++
+[listing]
+----
+sudo perl /home/maint/scripts/post-deploy-upgrade.pl -recovery
+----
++
+Los registros se registran en el archivo _/var/log/post-deploy-upgrade.log_.
+
+. Después de la recuperación correcta, se restauran los servicios y los objetos de vCenter.
+

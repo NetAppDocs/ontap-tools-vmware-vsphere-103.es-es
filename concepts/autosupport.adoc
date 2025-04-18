@@ -1,0 +1,18 @@
+---
+permalink: concepts/autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: AutoSupport es un mecanismo que supervisa de forma proactiva el estado del sistema y envía automáticamente mensajes al soporte técnico de NetApp, su organización de soporte interno y un partner de soporte. 
+---
+= AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport es un mecanismo que supervisa de forma proactiva el estado del sistema y envía automáticamente mensajes al soporte técnico de NetApp, su organización de soporte interno y un partner de soporte.
+
+De forma predeterminada, AutoSupport se habilita al configurar el sistema de almacenamiento por primera vez. AutoSupport comienza a enviar mensajes al soporte técnico 24 horas después de habilitar AutoSupport.
+
+Puede desactivar AutoSupport utilizando la opción de consola de mantenimiento *Configuración de la aplicación* > *Desactivar AutoSupport*. Se recomienda dejarlo activado. Al habilitar AutoSupport se agiliza la detección de problemas y se consigue una resolución más rápida. El sistema recopila información de AutoSupport y la almacena localmente, incluso cuando AutoSupport está desactivado. Sin embargo, no envía el informe a ninguna red. Debe proporcionar la url del proxy a través de la consola de mantenimiento de la primera máquina virtual. Utilice la opción *Configuración de la aplicación* > *Actualizar URL de proxy de AutoSupport* para introducir la URL de proxy.

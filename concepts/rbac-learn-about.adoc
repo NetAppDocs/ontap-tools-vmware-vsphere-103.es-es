@@ -1,0 +1,52 @@
+---
+permalink: concepts/rbac-learn-about.html 
+sidebar: sidebar 
+keywords: role based access control, rbac, rbac components, learn about rbac 
+summary: 'El control de acceso basado en roles (RBAC) es un marco de seguridad para controlar el acceso a los recursos de una organización. RBAC simplifica la administración definiendo roles con niveles de autoridad específicos para realizar acciones, en lugar de asignar autorización a usuarios individuales. Los roles definidos se asignan a los usuarios, lo que contribuye a reducir el riesgo de error y simplifica la gestión del control de acceso en toda la organización.' 
+---
+= Obtenga más información sobre las herramientas de ONTAP para el control de acceso basado en roles de VMware vSphere 10
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+El control de acceso basado en roles (RBAC) es un marco de seguridad para controlar el acceso a los recursos de una organización. RBAC simplifica la administración definiendo roles con niveles de autoridad específicos para realizar acciones, en lugar de asignar autorización a usuarios individuales. Los roles definidos se asignan a los usuarios, lo que contribuye a reducir el riesgo de error y simplifica la gestión del control de acceso en toda la organización.
+
+El modelo de estándar RBAC consta de varias tecnologías de implementación o fases que aumentan la complejidad. El resultado es que las puestas en marcha de control de acceso basado en roles reales, basadas en las necesidades de los proveedores de software y sus clientes, pueden variar y van de relativamente simples a muy complejas.
+
+
+
+== Componentes de RBAC
+
+A nivel general, existen varios componentes que se incluyen en todas las implementaciones de RBAC. Estos componentes se unen de diferentes maneras como parte de la definición de los procesos de autorización.
+
+.Privilegios
+Un _privilege_ es una acción o capacidad que se puede permitir o denegar. Puede ser algo simple, como la capacidad de leer un archivo o podría ser una operación más abstracta específica de un sistema de software dado. También se puede definir Privileges para restringir el acceso a extremos de la API de REST y comandos de la CLI. Cada implementación de control de acceso basado en roles incluye Privileges predefinido y también puede permitir a los administradores crear Privileges personalizado.
+
+.Funciones
+Un _role_ es un contenedor que incluye uno o más Privileges. Los roles se definen generalmente en función de tareas o funciones de trabajo particulares. Cuando se asigna un rol a un usuario, se otorga al usuario toda la Privileges incluida en el rol. Y al igual que con Privileges, las implementaciones incluyen roles predefinidos y, en general, permiten la creación de roles personalizados.
+
+.Objetos
+Un _OBJECT_ representa un recurso real o abstracto identificado en el entorno de RBAC. Las acciones definidas mediante Privileges se realizan sobre o con los objetos asociados. Dependiendo de la implementación, Privileges se puede otorgar a un tipo de objeto o a una instancia de objeto específica.
+
+.Usuarios y grupos
+_Users_ se asignan o asocian a un rol aplicado después de la autenticación. Algunas implementaciones de RBAC permiten asignar solo un rol a un usuario, mientras que otras permiten varios roles por usuario, quizás con un solo rol activo a la vez. La asignación de roles a _groups_ puede simplificar aún más la administración de seguridad.
+
+.Permisos
+Un _permission_ es una definición que enlaza un usuario o grupo junto con un rol a un objeto. Los permisos pueden ser útiles con un modelo de objetos jerárquicos en el que, opcionalmente, pueden ser heredados por los hijos de la jerarquía.
+
+
+
+== Dos entornos de RBAC
+
+Hay dos entornos distintos de control de acceso basado en roles que debes tener en cuenta al trabajar con herramientas de ONTAP para VMware vSphere 10.
+
+.Servidor VMware vCenter
+La implementación de RBAC en VMware vCenter Server se utiliza para restringir el acceso a los objetos expuestos a través de la interfaz de usuario de vSphere Client. Como parte de la instalación de herramientas de ONTAP para VMware vSphere 10, el entorno de control de acceso basado en roles se amplía para incluir objetos adicionales que representen las funcionalidades de las herramientas de ONTAP. El acceso a estos objetos se proporciona a través del plug-in remoto. Consulte link:../concepts/rbac-vcenter-environment.html["Entorno de RBAC de vCenter Server"] para obtener más información.
+
+.Clúster ONTAP
+Las herramientas de ONTAP para VMware vSphere 10 se conectan a un clúster ONTAP mediante la API REST DE ONTAP para realizar operaciones relacionadas con el almacenamiento. El acceso a los recursos de almacenamiento se controla a través de un rol de ONTAP asociado con el usuario de ONTAP proporcionado durante la autenticación. Consulte link:../concepts/rbac-ontap-environment.html["Entorno de RBAC de ONTAP"] para obtener más información.

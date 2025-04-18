@@ -1,0 +1,22 @@
+---
+section: configure
+title: Configure las herramientas de ONTAP para VMware vSphere
+entries:
+- title: Añada instancias de vCenter Server
+  url: "/configure/add-vcenter.html"
+- title: Registre el proveedor de VASA en vCenter Server
+  url: "/configure/registration-process.html"
+- title: Instale el complemento NFS VAAI
+  url: "/configure/install-nfs-vaai-plug-in.html"
+- title: Configure los ajustes del host ESXi
+  url: "/configure/configure-esx-server-multipath-and-timeout-settings.html"
+- title: Configure los roles y privilegios de usuario de ONTAP
+  url: "/configure/configure-user-role-and-privileges.html"
+- title: Añada un back-end de almacenamiento
+  url: "/configure/add-storage-backend.html"
+- title: Asocie un back-end de almacenamiento a una instancia de vCenter Server
+  url: "/configure/associate-storage-backend.html"
+- title: Configure el acceso a la red
+  url: "/configure/configure-network-access.html"
+- title: Cree un almacén de datos
+  url: "/configure/create-datastore.html"

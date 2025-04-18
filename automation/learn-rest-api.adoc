@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: automation/learn-rest-api.html 
+keywords: ontap tools vmware vsphere rest api 
+summary: Las herramientas de ONTAP para VMware vSphere 10 son un conjunto de herramientas para la gestión del ciclo de vida de los equipos virtuales. Incluye una sólida API DE REST que puedes utilizar como parte de tus procesos de automatización. 
+---
+= Obtenga más información sobre las herramientas de ONTAP para la API de REST DE VMware vSphere 10
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las herramientas de ONTAP para VMware vSphere 10 son un conjunto de herramientas para la gestión del ciclo de vida de los equipos virtuales. Incluye una sólida API DE REST que puedes utilizar como parte de tus procesos de automatización.
+
+
+
+== Base de servicios web DE REST
+
+La transferencia de estado representacional (REST) es un estilo para crear aplicaciones web distribuidas, incluido el diseño de API de servicios web. Establece un conjunto de tecnologías para exponer recursos basados en servidores y gestionar sus estados.
+
+.Recursos y representación estatal
+Los recursos son los componentes básicos de una aplicación de servicios web REST. Hay dos tareas iniciales importantes al diseñar una API REST:
+
+* Identificar los recursos del sistema o del servidor
+* Defina los estados de los recursos y las operaciones de transición de estado asociadas
+
+
+Las aplicaciones cliente pueden mostrar y cambiar los estados de los recursos a través de flujos de mensajes bien definidos.
+
+.Mensajes HTTP
+El protocolo de transferencia de hipertexto (HTTP) es el protocolo utilizado por el cliente y el servidor de servicios web para intercambiar mensajes sobre los recursos. Sigue el modelo CRUD basado en las operaciones genéricas CREATE, LEAD, UPDATE y DELETE. El protocolo HTTP incluye cabeceras de solicitud y respuesta, así como códigos de estado de respuesta.
+
+.Formato de datos JSON
+Si bien hay varios formatos de mensaje disponibles, la opción más popular es la notación de objetos JavaScript (JSON). JSON es un estándar de la industria para representar estructuras de datos simples en texto sin formato y se utiliza para transferir información de estado que describe los recursos y las acciones deseadas.
+
+.Seguridad
+La seguridad es un aspecto importante de una API DE REST. Además del protocolo de seguridad de la capa de transporte (TLS) utilizado para proteger el tráfico HTTP a través de la red, las herramientas de ONTAP para la API de REST DE VMware vSphere 10 también utilizan tokens de acceso para la autenticación. Debe adquirir un token de acceso y utilizarlo en llamadas API posteriores.
+
+.Soporte para solicitudes asíncronas
+Las herramientas de ONTAP para la API de REST DE VMware vSphere 10 realizan la mayoría de las solicitudes sincrónicamente, y se devuelve un código de estado una vez completada la operación. También admite procesamiento asíncrono de tareas que requieren más tiempo para completarse.
+
+
+
+== Entorno de gestión de herramientas de ONTAP
+
+Existen varios aspectos del entorno de ONTAP TOOLS Manager que debe tener en cuenta.
+
+.Máquina virtual
+Las herramientas de ONTAP para VMware vSphere 10 se ponen en marcha mediante la arquitectura del complemento remoto de vSphere. El software, incluido la compatibilidad con la API DE REST, se ejecuta en una máquina virtual independiente.
+
+.Dirección IP de las herramientas de ONTAP
+Las herramientas de ONTAP para VMware vSphere 10 exponen una única dirección IP que proporciona una puerta de enlace a las funcionalidades de la máquina virtual. Es necesario proporcionar la dirección durante la configuración inicial y se asigna a un componente de equilibrador de carga interno. La dirección se utiliza en la interfaz de usuario del Administrador de herramientas de ONTAP, así como para acceder a la página de documentación de Swagger y a la API de REST directamente.
+
+.Dos API DE REST
+Además de las herramientas de ONTAP para la API DE REST DE VMware vSphere 10, el clúster de ONTAP tiene su propia API DE REST. El administrador de herramientas de ONTAP utiliza la API REST DE ONTAP como cliente para realizar tareas relacionadas con el almacenamiento. Es importante tener en cuenta que estas dos API son separadas y distintas. Para obtener más información, consulte https://docs.netapp.com/us-en/ontap-automation/["Automatización de ONTAP"^].

@@ -1,0 +1,42 @@
+---
+permalink: manage/collect-the-log-files.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Puede recopilar archivos de registro para las herramientas de ONTAP para VMware vSphere desde las opciones disponibles en las herramientas de ONTAP para la interfaz gráfica de usuario de VMware vSphere \(GUI\). Es posible que el soporte técnico le solicite recoger los archivos de registro que sirven como ayuda para la solución de un problema.' 
+---
+= Recoja los archivos de registro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede recoger archivos de registro para las herramientas de ONTAP para VMware vSphere desde las opciones disponibles en la interfaz de usuario del gestor de herramientas de ONTAP. Es posible que el soporte técnico le solicite recoger los archivos de registro que sirven como ayuda para la solución de un problema.
+
+
+NOTE: La generación de registros desde el Administrador de herramientas de ONTAP incluye todos los registros para todas las instancias de vCenter Server. Los registros de generación desde la interfaz de usuario del cliente de vCenter se incluyen en la instancia de vCenter Server seleccionada.
+
+.Pasos
+. Inicie ONTAP TOOLS Manager desde un explorador web: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Inicie sesión con las herramientas de ONTAP para las credenciales de administrador de VMware vSphere que proporcionó durante la implementación.
+. Seleccione *Log Bundles* en la barra lateral.
++
+Esta operación puede llevar varios minutos.
+
+. Seleccione *Generar* para generar los archivos de registro.
+. Ingrese la etiqueta para el paquete de registro y seleccione *Generar*.
++
+Descargue el archivo tar.gz y envíelo al soporte técnico.
+
+
+
+Siga los pasos a continuación para generar paquete de registros con la interfaz de usuario del cliente de vCenter:
+
+.Pasos
+. Inicie sesión en el cliente de vSphere
+. En la página de inicio de vSphere Client, vaya a *Support* > *Log bundle* > *Generar*.
+. Proporcione la etiqueta del paquete de logs y genere el paquete de logs. Puede ver la opción de descarga cuando se generan los archivos. La descarga puede tardar algún tiempo.
+
+
+
+NOTE: El paquete de logs generado sustituye el paquete de logs generado en los últimos 3 días o 72 horas.

@@ -1,0 +1,64 @@
+---
+permalink: release-notes/whats-new.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 10.3, ONTAP tools for VMware vSphere' 
+summary: Descubra las nuevas funcionalidades disponibles en las herramientas de ONTAP para VMware vSphere 10,3. 
+---
+= Novedades de las herramientas de ONTAP para VMware vSphere 10,3
+:allow-uri-read: 
+
+
+[role="lead"]
+Descubra las nuevas funcionalidades disponibles en las herramientas de ONTAP para VMware vSphere 10,3.
+
+[cols="30%,70%"]
+|===
+| Actualizar | Descripción 
+
+
+ a| 
+Compatibilidad con nuevas versiones de aplicaciones y plataformas
+ a| 
+Las herramientas de ONTAP para VMware vSphere 10,3 ahora son compatibles con estas versiones de plataformas y aplicaciones:
+
+* ONTAP 9.16.0 y versiones posteriores
+* VMware vSphere 8,0 U3
+* Live Site Recovery 9,0 de VMware
+
+
+
+
+ a| 
+Facilidad de puesta en marcha
+ a| 
+Ahora puede poner en marcha herramientas de ONTAP para VMware vSphere 10,3 con requisitos mínimos en un clúster de un solo nodo y luego actualizarlo a una puesta en marcha de alta disponibilidad (HA) o a una puesta en marcha de varios nodos.
+
+
+
+ a| 
+Aprovisionamiento y configuración sin complicaciones
+ a| 
+Las herramientas de ONTAP para VMware vSphere 10,3 han eliminado las dependencias asociadas con Trident y ahora utiliza un aprovisionador de almacenamiento dinámico para permitir un aprovisionamiento y una configuración perfectos.
+
+
+
+ a| 
+Seguridad mejorada para la autenticación de la API de REST
+ a| 
+Las herramientas de ONTAP para VMware vSphere 10,3 ahora dependen de los certificados firmados por CA para las herramientas de ONTAP API de REST y la interfaz de usuario con el fin de ofrecer una mayor seguridad.
+
+
+
+ a| 
+Compatibilidad con los sistemas ASA R2
+ a| 
+Las herramientas de ONTAP para VMware vSphere 10,3 admiten el aprovisionamiento de almacenes de datos VMFS en sistemas ASA R2 para ayudar a proteger los almacenes de datos VMFS con sincronización activa de SnapMirror y Live Site Recovery de SRA/VMware.
+
+
+
+ a| 
+Observabilidad mejorada
+ a| 
+Las herramientas de ONTAP para VMware vSphere 10,3 amplían el soporte de las métricas de observabilidad para los almacenes de datos VMFS y VVOL y sus respectivos equipos virtuales.
+
+|===

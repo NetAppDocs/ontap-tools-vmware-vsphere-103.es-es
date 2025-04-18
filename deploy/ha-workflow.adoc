@@ -1,0 +1,41 @@
+---
+permalink: deploy/ha-workflow.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: La introducción a las herramientas de ONTAP para VMware vSphere incluye unos pocos pasos. 
+---
+= Flujo de trabajo de puesta en marcha de alta disponibilidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si usa almacenes de datos vVols, debe expandir la implementación inicial de herramientas de ONTAP a una configuración de alta disponibilidad y habilitar los servicios del proveedor VASA.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Una"] Escale verticalmente la puesta en marcha
+[role="quick-margin-para"]
+Puede escalar verticalmente la configuración de las herramientas ONTAP para VMware vSphere para aumentar el número de nodos en la implementación y cambiar la configuración a una configuración de alta disponibilidad.
+
+[role="quick-margin-list"]
+* link:../manage/edit-appliance-settings.html["Cambie la configuración de las herramientas de ONTAP para VMware vSphere"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Habilite los servicios
+[role="quick-margin-para"]
+Para configurar el almacén de datos vVols, debe habilitar el servicio del proveedor VASA. Registre el proveedor de VASA en vCenter y asegúrese de que sus políticas de almacenamiento cumplen los requisitos de alta disponibilidad, incluidas las configuraciones de almacenamiento y red adecuadas.
+
+[role="quick-margin-para"]
+Habilite los servicios de SRA para usar herramientas de ONTAP Storage Replication Adapter (SRA) para el administrador de recuperación de sitio (SRM) de VMware o Live Site Recovery (VLSR).
+
+[role="quick-margin-list"]
+* link:../manage/enable-services.html["Habilite los servicios de VASA Provider y SRA"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Actualice los certificados
+[role="quick-margin-para"]
+Si utiliza almacenes de datos VVol con varias instancias de vCenter Server, actualice el certificado autofirmado a un certificado firmado de una entidad de certificación (CA).
+
+[role="quick-margin-list"]
+* link:../manage/certificate-manage.html["Gestionar certificados"]
+

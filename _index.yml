@@ -1,0 +1,39 @@
+---
+indexpage:
+  title: Documentación de las herramientas de ONTAP para VMware vSphere 10,3
+  lead: Las herramientas de ONTAP para VMware vSphere permiten configurar, gestionar
+    y proteger los almacenes de datos virtuales en el entorno de vCenter Server.
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Notas de la versión
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3334864
+    - title: Obtenga información sobre las herramientas de ONTAP para VMware vSphere
+      url: "/concepts/ontap-tools-overview.html"
+    - title: Ponga en marcha herramientas de ONTAP para VMware vSphere
+      url: "/deploy/ontap-tools-deployment.html"
+    - title: Actualiza a la última versión de herramientas de ONTAP para VMware vSphere
+      url: "/upgrade/upgrade-ontap-tools.html"
+    - title: Migre herramientas de ONTAP para VMware vSphere
+      url: migrate/migrate-to-latest-ontaptools.html
+  - title: Utilice las herramientas de ONTAP para VMware vSphere
+    links:
+    - title: Configure el control de acceso basado en roles
+      url: "/concepts/rbac-learn-about.html"
+    - title: Configurar el diagnóstico remoto
+      url: "/manage/configure-remote-diagnostic-access.html"
+    - title: Alta disponibilidad para herramientas de ONTAP para VMware vSphere
+      url: "/concepts/high-availability.html"
+    - title: Proteja los almacenes de datos
+      url: "/protect/enable-storage-replication-adapter.html"
+  - title: Más recursos
+    links:
+    - title: Documentación para versiones anteriores de herramientas de ONTAP para
+        VMware vSphere 9
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63792
+    - title: Base de conocimientos de NetApp - Herramientas de ONTAP para VMware vSphere
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/VSC_and_VASA_Provider
+    - title: 'Comunidad NetApp: Herramientas de ONTAP para VMware vSphere'
+      url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions
+    - title: Obtenga más información sobre VMware vSphere con ONTAP
+      url: https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-vsphere-overview.html#why-ontap-for-vsphere

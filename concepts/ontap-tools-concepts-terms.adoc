@@ -1,0 +1,164 @@
+---
+permalink: concepts/ontap-tools-concepts-terms.html 
+sidebar: sidebar 
+keywords:  
+summary: En la siguiente sección se describen los conceptos y términos clave utilizados en el documento. 
+---
+= Conceptos y términos clave
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la siguiente sección se describen los conceptos y términos clave utilizados en el documento.
+
+
+
+=== Sistemas ASA r2
+
+Los nuevos sistemas R2 de NetApp ASA ofrecen una solución unificada de hardware y software que crea una experiencia simplificada específica para las necesidades de los clientes exclusivos de SAN. https://docs.netapp.com/us-en/asa-r2/get-started/learn-about.html["Obtenga información sobre los sistemas de almacenamiento R2 de ASA"].
+
+
+
+=== Entidad de certificación (CA)
+
+CA es una entidad de confianza que emite certificados SSL (Secure Sockets Layer).
+
+
+
+=== Grupo de consistencia
+
+Un grupo de coherencia es una recogida de volúmenes que se gestionan como una sola unidad. En ONTAP, los grupos de coherencia proporcionan una gestión fácil y una garantía de protección para una carga de trabajo de la aplicación que abarca varios volúmenes. Más información sobre https://docs.netapp.com/us-en/ontap/consistency-groups/index.html["grupo de consistencia"].
+
+
+
+=== Pila doble
+
+Una red de pila doble es un entorno de red que admite el uso simultáneo de direcciones IPv4 e IPv6.
+
+
+
+=== Alta disponibilidad
+
+Los nodos en clúster están configurados en pares de alta disponibilidad para realizar operaciones no disruptivas.
+
+
+
+=== Número de unidad lógica (LUN)
+
+Una LUN es un número utilizado para identificar una unidad lógica dentro de una red de área de almacenamiento (SAN). Estos dispositivos direccionables suelen ser discos lógicos a los que se accede a través del protocolo de Interfaz de Sistemas de Computadoras Pequeñas (SCSI) o uno de sus derivados encapsulados.
+
+
+
+=== Subsistema y espacio de nombres NVMe
+
+Un espacio de nombres NVMe es una cantidad de memoria no volátil que se puede formatear en bloques lógicos. Los espacios de nombres son el equivalente de LUN para los protocolos FC e iSCSI, y un subsistema NVMe es análogo a un igroup. Los iniciadores asociados pueden acceder a un subsistema NVMe con iniciadores para que los espacios de nombres dentro del subsistema puedan acceder a ellos.
+
+
+
+=== Gestor de herramientas de ONTAP
+
+El administrador de herramientas de ONTAP proporciona un mayor control a las herramientas de ONTAP para el administrador de VMware vSphere a través de las instancias gestionadas de vCenter Server y los back-ends de almacenamiento incorporados. El Administrador de herramientas de ONTAP ayuda en la gestión de instancias de vCenter Server, back-ends de almacenamiento, certificados, contraseñas y descargas de paquetes de registros.
+
+
+
+=== Open Virtual Appliance (OVA)
+
+OVA es un estándar abierto para empaquetar y distribuir dispositivos virtuales o software que deben ejecutarse en máquinas virtuales.
+
+
+
+=== Objetivo de punto de recuperación (RPO)
+
+El objetivo de punto de recuperación mide la frecuencia con la que se realizan backups o réplicas de los datos. Representa el punto en el tiempo en el que se deben recuperar los datos tras una interrupción del servicio para reanudar las operaciones empresariales. Por ejemplo, si una organización tiene un objetivo de punto de recuperación de 4 horas, puede tolerar que se pierda hasta 4 horas de datos en caso de desastre.
+
+
+
+=== Sincronización activa de SnapMirror (SMAS)
+
+La sincronización activa de SnapMirror permite que los servicios empresariales continúen funcionando incluso si se produce un fallo completo del sitio, lo que permite a las aplicaciones conmutar por error de forma transparente mediante una copia secundaria. Se requiere intervención manual ni secuencias de comandos personalizadas para activar una recuperación tras fallos con SnapMirror: Sincronización activa. Lea más sobre https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["SnapMirror síncrono activo"].
+
+
+
+=== Back-ends de almacenamiento
+
+Los back-ends de almacenamiento son la infraestructura de almacenamiento subyacente que el host ESXi utiliza para almacenar archivos de máquinas virtuales, datos y otros recursos. El back-end del almacenamiento permite al host ESXi acceder a los datos persistentes y gestionarlos, lo que proporciona la capacidad de almacenamiento y el rendimiento necesarios para un entorno virtualizado.
+
+
+
+=== Adaptador de replicación de almacenamiento (SRA)
+
+SRA es el software específico del proveedor de almacenamiento que se instala en el dispositivo de recuperación Live Site de VMware. El adaptador habilita la comunicación entre Site Recovery Manager y una controladora de almacenamiento en el nivel de Storage Virtual Machine (SVM) y la configuración a nivel del clúster.
+
+
+
+=== Máquina virtual de almacenamiento (SVM)
+
+Al igual que una máquina virtual que se ejecuta en un hipervisor, la SVM es una entidad lógica que abstrae los recursos físicos. SVM contiene volúmenes de datos y una o varias LIF a través de los cuales proporcionan datos a los clientes.
+
+
+
+=== Configuración uniforme y no uniforme
+
+* * El acceso uniforme a host* significa que los hosts de ambos sitios están conectados a todas las rutas a los clústeres de almacenamiento en ambos sitios. Los caminos de cruce se extienden a lo largo de la distancia.
+* * El acceso no uniforme del host* significa que los hosts en cada sitio están conectados solo al clúster en el mismo sitio. Las rutas entre sitios y las rutas extendidas no están conectadas.
++
+
+NOTE: Se admite el acceso uniforme de hosts en cualquier implementación de sincronización activa de SnapMirror; el acceso no uniforme de host solo se admite para implementaciones activo-activo simétricas.
+
+
+
+
+
+=== Sistema de archivos de máquina virtual (VMFS)
+
+VMFS es un sistema de archivos en clúster diseñado específicamente para almacenar archivos de máquinas virtuales en entornos de VMware vSphere.
+
+
+
+=== Volúmenes virtuales (vVols)
+
+VVols proporciona una abstracción en el nivel de volumen para el almacenamiento utilizado por una máquina virtual. Incluye varios beneficios y ofrece una alternativa al uso de una LUN tradicional. Un almacén de datos VVOL suele estar asociado con una única LUN que actúa como contenedor para los vVols.
+
+
+
+=== Política de almacenamiento de máquinas virtuales
+
+Las políticas de almacenamiento de máquinas virtuales se crean en vCenter Server en Políticas y perfiles. Para vVols, cree un conjunto de reglas mediante reglas del proveedor de tipo de almacenamiento NetApp vVols.
+
+
+
+=== Recuperación de sitio en vivo de VMware
+
+Live Site Recovery de VMware proporciona continuidad de negocio, recuperación de desastres, migración de sitios y funcionalidades de pruebas sin interrupciones para entornos virtuales VMware.
+
+
+
+=== API de VMware vSphere para detección de almacenamiento (VASA)
+
+VASA es un conjunto de API que integran cabinas de almacenamiento con vCenter Server para su gestión y administración. La arquitectura se basa en varios componentes, incluido el proveedor VASA, que gestiona la comunicación entre VMware vSphere y los sistemas de almacenamiento.
+
+
+
+=== API de almacenamiento VMware vSphere - Integración de cabina (VAAI)
+
+VAAI es un conjunto de API que permite la comunicación entre hosts ESXi de VMware vSphere y dispositivos de almacenamiento. Las API incluyen un conjunto de operaciones primitivas que utilizan los hosts para descargar las operaciones de almacenamiento hacia la cabina. VAAI puede proporcionar mejoras de rendimiento significativas para tareas que consumen mucho almacenamiento.
+
+
+
+=== Clúster de almacenamiento Metro de vSphere
+
+VSphere Metro Storage Cluster (VMSC) es una tecnología que habilita y admite vSphere en una puesta en marcha de clúster ampliada. Las soluciones VMSC son compatibles con NetApp MetroCluster y SnapMirror Active Sync (anteriormente SMBC). Estas soluciones proporcionan una mayor continuidad del negocio en caso de fallo de dominio. El modelo de flexibilidad se basa en sus opciones de configuración específicas. Más información sobre https://core.vmware.com/resource/vmware-vsphere-metro-storage-cluster-vmsc["VMware vSphere Metro Storage Cluster"].
+
+
+
+=== Almacén de datos vVols
+
+El almacén de datos de vVols es una representación lógica de un contenedor de vVols que crea y mantiene un proveedor de VASA.
+
+
+
+=== RPO cero
+
+RPO es la sigla en inglés para el objetivo de punto de recuperación, que es la cantidad de pérdida de datos que se considera aceptable durante un tiempo dado. El RPO de cero significa que no es aceptable ninguna pérdida de datos.

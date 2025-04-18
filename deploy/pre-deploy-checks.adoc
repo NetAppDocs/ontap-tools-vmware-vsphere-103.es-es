@@ -1,0 +1,136 @@
+---
+permalink: deploy/pre-deploy-checks.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: Antes de implementar herramientas ONTAP para VMware vSphere, debería estar familiarizado con los requisitos de espacio para el paquete de puesta en marcha y algunos requisitos básicos del sistema host. 
+---
+= Antes de empezar…​
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Asegúrese de cumplir los siguientes requisitos antes de continuar con la implementación:
+
+|===
+| Requisitos | Su estado 
+
+
+| La versión de vSphere, la versión de ONTAP y la versión del host ESXi son compatibles con la versión de las herramientas ONTAP. | ❏ sí ❏ No 
+
+
+| El entorno de vCenter Server está instalado y configurado | ❏ sí ❏ No 
+
+
+| Se ha eliminado la caché del explorador | ❏ sí ❏ No 
+
+
+| Tiene las credenciales principales de vCenter Server | ❏ sí ❏ No 
+
+
+| Tiene las credenciales de inicio de sesión para la instancia de vCenter Server, en la cual las herramientas de ONTAP para VMware vSphere se conectarán después de la implementación para el registro | ❏ sí ❏ No 
+
+
+| El nombre de dominio donde se emite el certificado se asigna a la dirección IP virtual en una puesta en marcha de varias instancias de vCenter, donde los certificados de CA personalizados son obligatorios. | ❏ sí ❏ No 
+
+
+| Ha ejecutado la comprobación nslookup en el nombre de dominio para comprobar si el dominio se está resolviendo a la dirección IP deseada. | ❏ sí ❏ No 
+
+
+| El certificado se crea con el nombre de dominio y la dirección IP de las herramientas de ONTAP. | ❏ sí ❏ No 
+
+
+| Es posible acceder a la aplicación y los servicios internos de herramientas de ONTAP desde vCenter Server. | ❏ sí ❏ No 
+
+
+| Cuando usa SVM multi-tenant, tiene un LIF de gestión de SVM en cada SVM. | ❏ sí ❏ No 
+|===
+
+
+== Hoja de trabajo de despliegue
+
+
+
+=== Para la puesta en marcha de un nodo único
+
+Utilice la siguiente hoja de datos para recopilar la información requerida para las herramientas de ONTAP para la puesta en marcha inicial de VMware vSphere: Para las herramientas de ONTAP para la implementación inicial de VMware vSphere:
+
+|===
+| Requisito | Su valor 
+
+
+| Dirección IP de la aplicación de herramientas de ONTAP |  
+
+
+| Dirección IP de interconexión de nodo para la comunicación entre nodos |  
+
+
+| Nombre de host DNS para el primer nodo |  
+
+
+| Servidor DNS primario |  
+
+
+| Servidor DNS secundario |  
+
+
+| Dominio de búsqueda DNS |  
+
+
+| La dirección IPv4 del nodo principal |  
+
+
+| Máscara de subred para la dirección IPv4 |  
+
+
+| Puerta de enlace predeterminada para la dirección IPv4 |  
+
+
+| Dirección IPv6 (opcional) |  
+
+
+| Longitud del prefijo de IPv6 (opcional) |  
+
+
+| Puerta de enlace de la dirección IPv6 (opcional) |  
+|===
+Cree registros DNS para todas las direcciones IP anteriores. Antes de asignar nombres de host, asígnelos a las direcciones IP libres en el DNS. Todas las direcciones IP deben estar en la misma VLAN seleccionada para la implementación.
+
+
+
+=== Para una puesta en marcha de alta disponibilidad
+
+Además de los requisitos de puesta en marcha de nodo único, necesitará la siguiente información para la puesta en marcha de alta disponibilidad:
+
+|===
+
+
+| Requisito | Su valor 
+
+
+| Servidor DNS primario |  
+
+
+| Servidor DNS secundario |  
+
+
+| Dominio de búsqueda DNS |  
+
+
+| Nombre de host DNS para el segundo nodo |  
+
+
+| La dirección IP para el segundo nodo |  
+
+
+| Nombre de host DNS para el tercer nodo |  
+
+
+| La dirección IP del tercer nodo |  
+|===
+
+
+== Configuración del firewall de red
+
+Abra los puertos necesarios para las direcciones IP en el firewall de red. Las herramientas de ONTAP deben ser capaces de llegar a este LIF a través del puerto 443. Consulte link:../deploy/prerequisites.html["Requisitos de puertos"]para obtener información sobre las últimas actualizaciones.

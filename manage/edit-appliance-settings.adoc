@@ -1,0 +1,60 @@
+---
+permalink: manage/edit-appliance-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: Puede cambiar la contraseña del administrador mediante el Administrador de herramientas de ONTAP. 
+---
+= Cambie la configuración de las herramientas de ONTAP para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Con el Gestor de herramientas de ONTAP, escale verticalmente la configuración de las herramientas de ONTAP para VMware vSphere para aumentar el número de nodos en la implementación o cambiar la configuración a configuración de alta disponibilidad. Las herramientas ONTAP para el dispositivo VMware vSphere se ponen en marcha inicialmente en una configuración de nodo único que no es de alta disponibilidad.
+
+*Antes de empezar*
+
+* Asegúrese de que la plantilla OVA tiene la misma versión de OVA que el nodo 1. El nodo 1 es el nodo predeterminado donde se pone en marcha inicialmente las herramientas de ONTAP para VMware vSphere OVA.
+* Asegúrese de que la conexión en caliente de la CPU y la conexión en caliente de la memoria están activadas.
+
+
+.Pasos
+. Inicie ONTAP TOOLS Manager desde un explorador web: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Inicie sesión con las herramientas de ONTAP para las credenciales de administrador de VMware vSphere que proporcionó durante la implementación.
+. Seleccione la opción *Editar configuración del aparato* en la sección de descripción general.
+. En la sección *Configuración*, puede escalar hacia arriba para aumentar el tamaño del nodo y habilitar la configuración HA según sus necesidades. Se necesitan las credenciales de vCenter Server para realizar cambios.
++
+Cuando las herramientas de ONTAP están en una configuración de alta disponibilidad, puede cambiar los detalles de la biblioteca de contenido. Debe volver a proporcionar la contraseña para la nueva presentación de edición.
+
++
+
+NOTE: En las herramientas de ONTAP para VMware vSphere, solo se permite aumentar el tamaño del nodo, ya que no se puede reducir su tamaño. En una configuración no de alta disponibilidad, solo se admite una configuración de tamaño mediano. En una configuración de alta disponibilidad se admiten las configuraciones medianas y grandes.
+
+. Utilice el botón de alternar HA para habilitar la configuración de alta disponibilidad. En la página *HA settings*, asegúrese de que:
++
+** La biblioteca de contenido pertenece a la misma instancia de vCenter Server donde se ejecutan los equipos virtuales del nodo de herramientas de ONTAP. Las credenciales de vCenter Server se utilizan para validar y descargar la plantilla OVA para realizar cambios en el dispositivo.
+** La máquina virtual que aloja las herramientas de ONTAP no se implementa directamente en un host ESXi. La máquina virtual debe ponerse en marcha en un clúster o un pool de recursos.
++
+
+NOTE: Una vez que la configuración de alta disponibilidad esté habilitada, no se puede revertir a una configuración de nodo solo sin alta disponibilidad.
+
+
+
+. En la sección *Configuración HA* de la ventana *Editar configuración de dispositivo*, puede introducir los detalles de los nodos 2 y 3. Las herramientas de ONTAP para VMware vSphere admiten tres nodos en una configuración de alta disponibilidad.
++
+
+NOTE: La mayoría de las opciones de entrada se rellenan previamente con detalles de red del nodo 1 para facilitar el flujo de trabajo. Sin embargo, puede editar los datos de entrada antes de navegar a la página final del asistente. Solo es posible introducir detalles de la dirección IPv6 para los otros dos nodos cuando la dirección IPv6 está habilitada en el primer nodo.
+
++
+Compruebe que un host ESXi contenga solo una máquina virtual de ONTAP Tools. Las entradas se validan cada vez que se mueve a la siguiente ventana.
+
+. Revise los detalles en la sección *Resumen* y *Guardar* los cambios.
+
+
+.El futuro
+La página *Overview* muestra el estado del despliegue. Con el ID de trabajo, también puede realizar un seguimiento del estado del trabajo de edición de la configuración del dispositivo desde la vista de trabajos.
+
+Si falla la puesta en marcha de alta disponibilidad y el estado del nuevo nodo aparece como «New» (Nuevo), elimine la nueva máquina virtual en vCenter antes de volver a intentar la operación de habilitación de alta disponibilidad.
+
+La pestaña *Alertas* en el panel izquierdo muestra las alertas de las herramientas de ONTAP para VMware vSphere.

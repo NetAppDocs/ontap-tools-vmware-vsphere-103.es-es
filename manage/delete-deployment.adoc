@@ -1,0 +1,31 @@
+---
+permalink: manage/delete-deployment.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: Después de eliminar las herramientas de ONTAP para la implementación de VMware vSphere, debe limpiar los volúmenes flexibles que se crearon durante la implementación. Si ha utilizado un clúster de ONTAP dedicado para las puestas en marcha, debe limpiar los volúmenes flexibles a medida que la puesta en marcha crea una gran cantidad de volúmenes flexibles que no se utilizan, lo que reduce el rendimiento. 
+---
+= Quite volúmenes FlexVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se utiliza un clúster dedicado de herramientas de ONTAP para ONTAP para la implementación de VMware, se crean muchos volúmenes de FlexVol sin utilizar. Después de eliminar las herramientas de ONTAP para VMware vSphere, debe eliminar los volúmenes de FlexVol para evitar que se vean posibles impactos en el rendimiento.
+
+.Pasos
+. Determine el tipo de puesta en marcha de las herramientas de ONTAP para VMware vSphere desde la máquina virtual del nodo principal.
++
+_cat /opt/netapp/meta/ansible_vars.yaml | grep -protocolo_
+
++
+Si se trata de una implementación de iSCSI, también debe eliminar iGroups.
+
+. Obtenga la lista de volúmenes FlexVol.
++
+_Kubectl describe persistentvolumes | grep InternalName | awk -F'=' '{print $2}'_
+
+. Quite las máquinas virtuales de vCenter Server. Consulte https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0/managing-virtual-machinesvsphere-vm-admin/adding-and-removing-virtual-machinesvsphere-vm-admin.html#GUID-376174FE-F936-4BE4-B8C2-48EED42F110B-en["Elimine y vuelva a registrar máquinas virtuales y plantillas de máquinas virtuales"].
+. Elimine volúmenes FlexVol desde ONTAP System Manager. Consulte https://docs.netapp.com/us-en/ontap/volumes/delete-flexvol-task.html["Eliminar un volumen de FlexVol"]. En el comando de la CLI para eliminar un volumen, proporcione el nombre exacto de los volúmenes de FlexVol.
+. Elimine iGroups de SAN del sistema de almacenamiento ONTAP en caso de implementación de iSCSI. Consulte https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html["Consulte y gestione iniciadores E iGroups SAN"].
+

@@ -1,0 +1,30 @@
+---
+section: concepts
+title: Conceptos
+entries:
+- title: Información general de las herramientas de ONTAP para VMware vSphere
+  url: "/concepts/ontap-tools-overview.html"
+- title: Conceptos y términos clave
+  url: "/concepts/ontap-tools-concepts-terms.html"
+- title: Control de acceso basado en roles
+  entries:
+  - title: Obtenga más información sobre RBAC
+    url: "/concepts/rbac-learn-about.html"
+  - title: Control de acceso basado en roles con VMware vSphere
+    entries:
+    - title: Entorno de vCenter Server
+      url: "/concepts/rbac-vcenter-environment.html"
+    - title: Utilice RBAC con vCenter Server
+      url: "/concepts/rbac-vcenter-use.html"
+  - title: RBAC con ONTAP
+    entries:
+    - title: Entorno ONTAP
+      url: "/concepts/rbac-ontap-environment.html"
+    - title: Utilizar RBAC con ONTAP
+      url: "/concepts/rbac-ontap-use.html"
+- title: Alta disponibilidad para herramientas de ONTAP para VMware vSphere
+  url: "/concepts/high-availability.html"
+- title: AutoSupport
+  url: "/concepts/autosupport.html"
+- title: Interfaz de usuario del gestor de herramientas de ONTAP
+  url: "/configure/manager-user-interface.html"

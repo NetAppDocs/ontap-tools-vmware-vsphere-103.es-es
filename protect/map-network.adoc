@@ -1,0 +1,42 @@
+---
+permalink: protect/map-network.html 
+sidebar: sidebar 
+keywords:  
+summary: Debe asignar sus redes en el sitio protegido y el sitio de recuperación para permitir la comunicación entre ellas. 
+---
+= Configure las asignaciones de red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar las asignaciones de recursos como redes de máquinas virtuales, hosts ESXi y carpetas en ambos sitios con el fin de permitir la asignación de cada recurso del sitio protegido al recurso adecuado del sitio de recuperación.
+
+Debe completar las siguientes configuraciones de recursos:
+
+* Asignaciones de red
+* Asignaciones de carpetas
+* Asignaciones de recursos
+* Almacenes de datos de marcadores de posición
+
+
+.Antes de empezar
+Debe haber conectado los sitios protegidos y de recuperación.
+
+.Pasos
+. Inicie sesión en vCenter Server y seleccione *Site Recovery* > *Sites*.
+. Seleccione su sitio protegido y seleccione *Administrar*.
+. Seleccione *Asignaciones de red* > *Nuevo* en la pestaña Administrar para crear una nueva asignación de red.
+. En el asistente Create Network Mapping, haga lo siguiente:
++
+.. Selecciona *Preparar automáticamente asignaciones para redes con nombres coincidentes* y selecciona *Siguiente*.
+.. Seleccione los objetos del centro de datos necesarios para los sitios protegidos y de recuperación y seleccione *Agregar asignaciones*.
+.. Seleccione *Siguiente* después de que las asignaciones se hayan creado correctamente.
+.. Seleccione el objeto utilizado anteriormente para crear una asignación inversa y, a continuación, seleccione * Finalizar *.
+
+
+
+
+.Resultado
+La página Network Mappings muestra los recursos del sitio protegidos y los recursos del sitio de recuperación. Puede seguir los mismos pasos para otras redes del entorno.

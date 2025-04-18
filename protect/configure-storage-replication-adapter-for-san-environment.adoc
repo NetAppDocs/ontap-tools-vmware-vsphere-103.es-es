@@ -1,0 +1,70 @@
+---
+permalink: protect/configure-storage-replication-adapter-for-san-environment.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Debe configurar los sistemas de almacenamiento antes de ejecutar el adaptador de replicación de almacenamiento \(SRA\) para VMware Live Site Recovery.' 
+---
+= Configure SRA para entornos SAN y NAS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar los sistemas de almacenamiento antes de ejecutar Storage Replication Adapter (SRA) para VMware Live Site Recovery.
+
+
+
+== Configure SRA para entornos SAN
+
+.Antes de empezar
+Debe tener los siguientes programas instalados en el sitio protegido y el sitio de recuperación:
+
+* Recuperación de sitio en vivo de VMware
++
+La documentación sobre la instalación de VMware Live Site Recovery está en el sitio de VMware.
+
++
+https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["Acerca de VMware Live Site Recovery"]
+
+* SRA.
++
+El adaptador está instalado en Live Site Recovery de VMware.
+
+
+
+.Pasos
+. Compruebe que los hosts ESXi principales están conectados a los LUN del sistema de almacenamiento principal en el sitio protegido.
+. Compruebe que LAS LUN se encuentran en iGroups que tienen `ostype` la opción establecida en _vmware_ en el sistema de almacenamiento primario.
+. Comprobar que los hosts ESXi del sitio de recuperación tengan la conectividad iSCSI adecuada a la máquina virtual de almacenamiento (SVM). Los hosts ESXi del sitio secundario deben tener acceso al almacenamiento del sitio secundario, y los hosts ESXi del sitio primario deben tener acceso al almacenamiento del sitio principal.
++
+Puede hacerlo mediante la verificación de que los hosts ESXi tienen LUN locales conectados en la SVM o `iscsi show initiators` el comando en las SVM. Compruebe el acceso a los LUN asignados en el host ESXi para verificar la conectividad de iSCSI.
+
+
+
+
+
+== Configure SRA para entornos NAS
+
+.Antes de empezar
+Debe tener los siguientes programas instalados en el sitio protegido y el sitio de recuperación:
+
+* Recuperación de sitio en vivo de VMware
++
+La documentación sobre la instalación de VMware Live Site Recovery se puede encontrar en el sitio de VMware.
+
++
+https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["Acerca de VMware Live Site Recovery"]
+
+* SRA.
++
+El adaptador está instalado en VMware Live Site Recovery y en el servidor SRA.
+
+
+
+.Pasos
+. Compruebe que los almacenes de datos del sitio protegido contienen máquinas virtuales registradas en vCenter Server.
+. Compruebe que los hosts ESXi del sitio protegido hayan montado los volúmenes NFS exporta de la máquina virtual de almacenamiento (SVM).
+. Verifique que las direcciones válidas, como la dirección IP, el nombre de host o el FQDN en el que están presentes las exportaciones NFS, se especifiquen en el campo *Direcciones NFS* al utilizar el asistente del Administrador de matrices para agregar matrices a la recuperación de sitios activos de VMware.
+. Use `ping` el comando en cada host ESXi del sitio de recuperación para comprobar que el host tenga un puerto VMkernel que pueda acceder a las direcciones IP que se utilizan para servir exportaciones NFS desde la SVM.
+

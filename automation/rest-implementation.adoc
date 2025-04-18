@@ -1,0 +1,160 @@
+---
+permalink: automation/rest-implementation.html 
+sidebar: sidebar 
+keywords: ontap tools vmware vsphere rest api reference 
+summary: Aunque REST establece un conjunto común de tecnologías y mejores prácticas, la implementación exacta de cada API puede variar en función de las opciones de diseño. Tiene que conocer cómo se diseñó la API de REST DE las herramientas de ONTAP para VMware vSphere 10 antes de usarla. 
+---
+= Detalles de implementación para las herramientas de ONTAP para la API de REST DE VMware vSphere 10
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aunque REST establece un conjunto común de tecnologías y mejores prácticas, la implementación exacta de cada API puede variar en función de las opciones de diseño. Tiene que conocer cómo se diseñó la API de REST DE las herramientas de ONTAP para VMware vSphere 10 antes de usarla.
+
+La API de REST incluye varias categorías de recursos, como vCenter y agregados. Consulte la link:../automation/api-reference.html["Referencia API"] para obtener más información.
+
+
+
+== Cómo acceder a la API de REST
+
+Puede acceder a las herramientas de ONTAP para la API de REST DE VMware vSphere 10 a través de la dirección IP del balanceador de carga de las herramientas de ONTAP junto con el puerto. Hay varias partes en la URL completa, incluyendo:
+
+* Dirección IP y puerto de ONTAP Tools
+* Versión de API
+* Categoría de recurso
+* Recurso específico
+
+
+Tiene que configurar la dirección IP durante la configuración inicial y el puerto es siempre 8443. Además, para una instancia específica de ONTAP Tools para VMware vSphere 10, la primera parte de la URL es constante. Sólo la categoría de recursos y el recurso específico varían en los puntos finales.
+
+
+CAUTION: La dirección IP y los valores de puerto de los siguientes ejemplos se ofrecen con fines ilustrativos únicamente. Debe cambiar estos valores para el entorno.
+
+.Ejemplo para acceder a los servicios de autenticación
+`\https://10.61.25.34:8443/virtualization/api/v1/auth/login`
+
+Esta URL se puede utilizar para solicitar un token de acceso mediante el método POST.
+
+.Ejemplo para mostrar los servidores de vCenter
+`\https://10.61.25.34:8443/virtualization/api/v1/vcenters`
+
+Esta URL se puede utilizar para solicitar una lista de las instancias definidas de vCenter Server con el método GET.
+
+
+
+== Detalles de HTTP
+
+Las herramientas de ONTAP para la API REST DE VMware vSphere 10 utilizan HTTP y parámetros relacionados para actuar sobre las instancias y las recopilaciones de los recursos. A continuación se presentan los detalles de la implementación HTTP.
+
+
+
+=== Métodos HTTP
+
+Los métodos HTTP o verbos admitidos por la API REST se presentan en la siguiente tabla.
+
+[cols="15,15,70"]
+|===
+| Método | CRUD | Descripción 
+
+
+| OBTENGA | Lea | Recupera propiedades de objeto para una instancia o colección de recursos. Esto se considera una operación de lista cuando se utiliza con una recopilación. 
+
+
+| PUBLICAR | Cree | Crea una nueva instancia de recurso basada en los parámetros de entrada. 
+
+
+| PUESTO | Actualizar | Actualiza una instancia de recurso completa con el cuerpo de solicitud JSON proporcionado. Los valores clave que no se pueden modificar por el usuario se conservan. 
+
+
+| PARCHE | Actualizar | Solicita que se aplique un juego de cambios seleccionados en la solicitud a la instancia de recurso. 
+
+
+| ELIMINAR | Eliminar | Elimina una instancia de recurso existente. 
+|===
+
+
+=== Encabezados de solicitud y respuesta
+
+En la siguiente tabla se resumen las cabeceras HTTP más importantes utilizadas con la API REST.
+
+[cols="30,15,55"]
+|===
+| Encabezado | Tipo | Notas de uso 
+
+
+| Acepte | Solicitud | Este es el tipo de contenido que la aplicación cliente puede aceptar. Los valores válidos incluyen '\*/*` o `application/json`. 
+
+
+| autenticación x. | Solicitud | Contiene un token de acceso que identifica al usuario que emite la solicitud a través de la aplicación cliente. 
+
+
+| Tipo de contenido | Respuesta | Devuelto por el servidor en función de `Accept` la cabecera de solicitud. 
+|===
+
+
+=== códigos de estado HTTP
+
+Los códigos de estado HTTP utilizados por la API de REST se describen a continuación.
+
+[cols="15,20,65"]
+|===
+| Codificación | Significado | Descripción 
+
+
+| 200 | DE ACUERDO | Indica que las llamadas que no crean una nueva instancia de recurso tienen éxito. 
+
+
+| 201 | Creado | Se ha creado correctamente un objeto con un identificador único para la instancia de recurso. 
+
+
+| 202 | Aceptado | Se ha aceptado la solicitud y se ha creado un trabajo en segundo plano para realizar la solicitud. 
+
+
+| 204 | Sin contenido | La solicitud se ha realizado correctamente aunque no se ha devuelto ningún contenido. 
+
+
+| 400 | Solicitud incorrecta | La entrada de la solicitud no se reconoce o no es apropiada. 
+
+
+| 401 | No autorizado | El usuario no está autorizado y debe autenticarse. 
+
+
+| 403 | Prohibido | Se deniega el acceso debido a un error de autorización. 
+
+
+| 404 | No encontrado | El recurso al que se hace referencia en la solicitud no existe. 
+
+
+| 409 | Conflicto | Error al intentar crear un objeto porque el objeto ya existe. 
+
+
+| 500 | Error interno | Se ha producido un error interno general en el servidor. 
+|===
+
+
+== Autenticación
+
+La autenticación de un cliente para la API de REST se realiza mediante un token de acceso. Las características relevantes del token y el proceso de autenticación incluyen:
+
+* El cliente debe solicitar un token con las credenciales de administrador del Administrador de herramientas de ONTAP (nombre de usuario y contraseña).
+* Los tokens se formatean como un token web JSON (JWT).
+* Cada token expira después de 60 minutos.
+* Las solicitudes de API de un cliente deben incluir el token en `x-auth` el encabezado de solicitud.
+
+
+Consulte link:../automation/first-call.html["Tu primera llamada a la API de REST"]para ver un ejemplo de solicitud y uso de un token de acceso.
+
+
+
+== Solicitudes síncronas y asíncronas
+
+La mayoría de las llamadas API DE REST se completan rápidamente y, por lo tanto, se ejecutan de forma síncrona. Es decir, devuelven un código de estado (como 200) después de que se haya completado una solicitud. Las solicitudes que tardan más en completarse se ejecutan de forma asíncrona mediante un trabajo en segundo plano.
+
+Después de emitir una llamada API que se ejecuta de forma asíncrona, el servidor devuelve un código de estado HTTP 202. Esto indica que la solicitud se ha aceptado pero aún no se ha completado. Puede consultar el trabajo en segundo plano para determinar su estado, incluido el correcto o el fallo.
+
+El procesamiento asíncrono se utiliza para diversos tipos de operaciones de ejecución prolongada, como operaciones de almacenes de datos y VVol. Consulte la categoría del gestor de trabajos de la API de REST en la página de Swagger para obtener más información.

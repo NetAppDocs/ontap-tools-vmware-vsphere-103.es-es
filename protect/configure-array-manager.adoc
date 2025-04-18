@@ -1,0 +1,65 @@
+---
+permalink: protect/configure-array-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Puede configurar el adaptador de replicación de almacenamiento \(SRA\) mediante el asistente Array Manager de VMware Live Site Recovery para habilitar interacciones entre VMware Live Site Recovery y máquinas virtuales de almacenamiento \(SVMs\).' 
+---
+= Configure el SRA con el administrador de cabinas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar el adaptador de replicación de almacenamiento (SRA) mediante el asistente Array Manager de VMware Live Site Recovery para habilitar interacciones entre VMware Live Site Recovery y las máquinas virtuales de almacenamiento (SVM).
+
+.Antes de empezar
+* Debería haber emparejado los sitios protegidos y los sitios de recuperación en Live Site Recovery de VMware.
+* Debe haber configurado el almacenamiento integrado antes de configurar el administrador de cabinas.
+* Debe haber configurado y replicado las relaciones de SnapMirror entre los sitios protegidos y los sitios de recuperación.
+* Debe haber habilitado los LIF de gestión de SVM para habilitar la multi-tenancy.
+
+
+El SRA admite la gestión a nivel de clúster y la gestión a nivel de SVM. Si añade almacenamiento en el nivel de clúster, puede detectar y realizar operaciones en todas las SVM del clúster. Si añade almacenamiento a nivel de SVM, solo podrá gestionar esa SVM específica.
+
+.Pasos
+. En Live Site Recovery de VMware, seleccione *Array Managers* > *Add Array Manager*.
+. Introduzca la siguiente información para describir la cabina en VMware Live Site Recovery:
++
+.. Introduzca un nombre para identificar al administrador de matrices en el campo *Nombre para mostrar*.
+.. En el campo *Tipo de SRA*, seleccione *adaptador de replicación del almacenamiento de NetApp para ONTAP*.
+.. Introduzca la información para conectarse con el clúster o la SVM:
++
+*** Si se conecta a un clúster, debe introducir la LIF de gestión del clúster.
+*** Si se conecta directamente a una SVM, debe introducir la dirección IP de la LIF de gestión de SVM.
++
+
+NOTE: Al configurar el administrador de cabinas, debe utilizar la misma conexión (dirección IP) para el sistema de almacenamiento que se utilizó para incorporar el sistema de almacenamiento en las herramientas ONTAP para VMware vSphere. Por ejemplo, si la configuración del administrador de cabinas se encuentra en el ámbito de SVM, se debe agregar el almacenamiento de las herramientas de ONTAP para VMware vSphere al nivel de SVM.
+
+
+
+.. Si se conecta a un clúster, introduzca el nombre de la SVM en el campo *SVM name*.
++
+También puede dejar este campo en blanco.
+
+.. Introduzca los volúmenes que se van a detectar en el campo *Lista de inclusión de volumen*.
++
+Se puede introducir el volumen de origen en el sitio protegido y el volumen de destino replicado en el centro de recuperación.
+
++
+Por ejemplo, si desea detectar el volumen src_vol1 que está en una relación de SnapMirror con el volumen dst_vol1, debe especificar src_vol1 en el campo del sitio protegido y dst_vol1 en el campo del sitio de recuperación.
+
+.. *(opcional)* Introduzca los volúmenes que se van a excluir del descubrimiento en el campo *Lista de exclusión de volumen*.
++
+Se puede introducir el volumen de origen en el sitio protegido y el volumen de destino replicado en el centro de recuperación.
+
++
+Por ejemplo, si desea excluir el volumen _src_vol1_ que está en una relación de SnapMirror con el volumen _dst_vol1_, debe especificar _src_vol1_ en el campo del sitio protegido y _dst_vol1_ en el campo del sitio de recuperación.
+
+
+
+. Seleccione *Siguiente*.
+. Verifique que la matriz se detecte y se muestre en la parte inferior de la ventana Agregar Array Manager y seleccione *Finalizar*.
+
+
+Puede seguir los mismos pasos para el sitio de recuperación usando las direcciones IP de gestión de SVM y las credenciales adecuadas. En la pantalla Habilitar parejas de cabinas del asistente Añadir administrador de cabinas, debe verificar que se haya seleccionado la pareja de cabinas correcta y que esté lista para habilitarse.
