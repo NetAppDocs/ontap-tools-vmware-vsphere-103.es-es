@@ -63,7 +63,7 @@ Utilice la siguiente hoja de datos para recopilar la información requerida para
 | Dirección IP de la aplicación de herramientas de ONTAP |  
 
 
-| Dirección IP de interconexión de nodo para la comunicación entre nodos |  
+| Dirección IP de interconexión de nodo para la comunicación interna |  
 
 
 | Nombre de host DNS para el primer nodo |  
