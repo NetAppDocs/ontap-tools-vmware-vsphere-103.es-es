@@ -384,8 +384,6 @@
   <block id="b7d863d6846eaf1689410c02279f9ea6" category="doc">Añada un back-end de almacenamiento</block>
   <block id="442290d4045e6c10552f661da43a9706" category="paragraph">Añadir un back-end de almacenamiento le permite incorporar un clúster de ONTAP.</block>
   <block id="78166ce4ccceeedfbf6aeb8682851072" category="paragraph">*Acerca de esta tarea*</block>
-  <block id="0333b8e59818e95f8c3464384f005977" category="paragraph">Para añadir un back-end de almacenamiento a un clúster de ámbito global en una arquitectura multi-tenant, agregue el back-end de almacenamiento con el Administrador de herramientas de ONTAP. Después de añadir el back-end de almacenamiento al clúster global, debe asociar el clúster con los inquilinos de vCenter deseados. El inquilino de vCenter debe incorporar las máquinas virtuales de almacenamiento (SVM) que desee. Esto permite que un usuario de SVM aprovisione un almacén de datos vVols. Puede añadir almacenamiento en vCenter mediante la SVM.</block>
-  <block id="91310533ef068c4c3d95d7102fd2e7da" category="paragraph">Para añadir un back-end de almacenamiento a un clúster de ámbito local, añada los sistemas ONTAP directamente con el complemento de herramientas de ONTAP en el servidor vCenter.</block>
   <block id="da6388fdc3d2fad794be9aa033101c19" category="open-title">Mediante el Administrador de herramientas de ONTAP</block>
   <block id="a761d3a6a5565687c80a0d269ca343c4" category="admonition">En una configuración multi-tenant, puede añadir un clúster back-end de almacenamiento de forma global y SVM de forma local para usar las credenciales de usuario de SVM.</block>
   <block id="af97740fd99b637615a0fe129d5fc42f" category="list-text">Inicie ONTAP TOOLS Manager desde un explorador web:<block ref="a2fad8db83c338dbc95675bd05c70607" prefix=" " category="inline-code"></block></block>
@@ -394,7 +392,6 @@
   <block id="9cb992b5ee53404c646502db030f7c27" category="list-text">Añada el back-end de almacenamiento y proporcione la dirección IP del servidor o el FQDN, el nombre de usuario y los detalles de la contraseña.</block>
   <block id="60f27fc86b38229b1a666fd3c7b129f1" category="admonition">Se admiten los LIF de gestión de direcciones IPv4 y IPv6.</block>
   <block id="a6fd0b4332e8ac1bd18da3d605f3f558" category="open-title">Mediante la interfaz de usuario del cliente de vSphere</block>
-  <block id="15d9ec0601efc7a09529f55671b2bf35" category="admonition">Cuando se añade un back-end de almacenamiento mediante la interfaz de usuario del cliente de vSphere, el almacén de datos de vVols no admite la adición directa de un usuario de SVM.</block>
   <block id="3c4b541b5d5310d633c23010dd81989e" category="list-text">Inicie sesión en el cliente de vSphere</block>
   <block id="3a3cf1aabccd549ecea01e8e5bd01415" category="list-text">En la página de accesos directos, seleccione *Herramientas de NetApp ONTAP* en la sección de plugins.</block>
   <block id="1371ece860fedc2eae03b50872f67242" category="list-text">Añada el back-end de almacenamiento y proporcione la dirección IP del servidor, el nombre de usuario, la contraseña y los detalles del puerto.</block>
@@ -2164,4 +2161,6 @@
   <block id="0c72f5748e7c096b829fa8c13bdb6b7f" category="list-text">IPv4 es el componente de dirección IP de la configuración del nodo, que se puede utilizar para habilitar el shell de diagnóstico y el acceso SSH en el nodo con fines de depuración y mantenimiento.</block>
   <block id="e10687c7d1d3c93cdb138a57d9d14bdb" category="list-text">La dirección IP de interconexión del nodo se utiliza para la comunicación interna.</block>
   <block id="3e691305a01d01aac8e30b75bd1d8a27" category="cell">Dirección IP de interconexión de nodo para la comunicación interna</block>
+  <block id="7ffde475c4ea55e9fc7c8c11becbc141" category="paragraph">En caso de configuraciones de multi-tenancy en las que vCenter actúa como el inquilino con una SVM asociada, utilice ONTAP tools Manager para añadir el clúster. Asocie el back-end de almacenamiento con vCenter Server para asignarlo globalmente a la instancia integrada de vCenter Server. El inquilino de vCenter debe incorporar las máquinas virtuales de almacenamiento (SVM) que desee. Esto permite que un usuario de SVM aprovisione un almacén de datos vVols. Puede añadir almacenamiento en vCenter mediante la SVM.</block>
+  <block id="112fa4a14bcd73096ce0a79df18e90c8" category="admonition">Cuando se configura un back-end de almacenamiento a través de la interfaz de usuario del cliente de vSphere, es importante tener en cuenta que el almacén de datos vVols no admite la adición directa de un usuario de SVM.</block>
 </blocks>
