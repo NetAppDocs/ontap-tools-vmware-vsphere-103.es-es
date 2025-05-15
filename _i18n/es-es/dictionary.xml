@@ -432,15 +432,10 @@
   <block id="a4190631e34ccca7730e594f6655cc87" category="paragraph">Con las herramientas de ONTAP para VMware vSphere, puede establecer tiempos de espera y otros valores en los hosts ESXi para garantizar el mejor rendimiento y una conmutación al respaldo correcta. Los valores que las herramientas ONTAP para conjuntos de VMware vSphere se basan en las pruebas internas de NetApp.</block>
   <block id="9232ab7e918fc93452c2dc7c8fab1b8c" category="paragraph">Puede configurar los siguientes valores en un host ESXi:</block>
   <block id="ab9d8dfb65807487a899df1683e128fa" category="section-title">Configuración del adaptador de HBA/CNA</block>
-  <block id="d3c41b5a4cf556f3a598cc1221e08ee4" category="paragraph">Configura los ajustes de tiempo de espera recomendados del adaptador de bus de host para los sistemas de almacenamiento de NetApp.</block>
-  <block id="3225a10b07f1580f10dee4abc3779e6c" category="cell">Parámetros</block>
   <block id="c77eb099ccd3a59aa3a56c3c98c84669" category="cell">Definir este valor en...</block>
   <block id="117704664d6cada78ac3107380f63d23" category="cell">Disk.QFullSampleSize</block>
-  <block id="07b21acb18ec7b34bd91453e33448369" category="cell">32 para todas las configuraciones. Si configura este valor, se evitan los errores de I/O.</block>
   <block id="f66a3c183f0e736240b77f8b755c880e" category="cell">Disk.QFullThreshold</block>
-  <block id="ed6604a4485d16e1285db04ae3d4279f" category="cell">8 para todas las configuraciones. Si configura este valor, se evitan los errores de I/O.</block>
   <block id="19c08de7404551288e1274186e039ef4" category="cell">Tiempos de espera de FC HBA de Emulex</block>
-  <block id="6ea7e3b1d2b04c77c55309b1aaa41f8c" category="cell">Valor predeterminado.</block>
   <block id="d46cddda4da7ec11f17472d11df95b68" category="cell">Tiempos de espera de HBA FC de QLogic</block>
   <block id="c803cf4eb4cbf3a6b12b1e1cc3443970" category="section-title">Configuración DE MPIO</block>
   <block id="6a56526090ecb77854d07be849799242" category="paragraph">La configuración de MPIO define las rutas preferidas para los sistemas de almacenamiento de NetApp. Determinan cuáles de las rutas disponibles están optimizadas (en contraposición a las rutas no optimizadas que atraviesan el cable de interconexión) y establecen la ruta preferida en una de esas rutas.</block>
@@ -705,19 +700,13 @@
   <block id="89f7633ad6a1e114cebf9902aa42fd5c" category="paragraph">El complemento NFS vStorage API for Array Integration (NFS VAAI) es un componente de software que integra las cabinas de almacenamiento VMware vSphere y NFS. Instale el complemento VAAI de NFS mediante las herramientas ONTAP para VMware vSphere y aproveche las funcionalidades avanzadas de su cabina de almacenamiento NFS para descargar ciertas operaciones relacionadas con el almacenamiento desde los hosts ESXi en la propia cabina de almacenamiento.</block>
   <block id="bf25ac3fc5bee2b3ec36e32661767682" category="inline-link">Plugin NFS de NetApp para VAAI de VMware</block>
   <block id="f9fcb823ee6471ecceb63c9625d2c8fc" category="list-text">Descargue<block ref="e6fae45561f1786d6f3534aff65b3377" category="inline-link-rx"></block> el paquete de instalación.</block>
-  <block id="e27bb3e78ef59cd560e56215a182f3b3" category="list-text">Asegúrese de tener la revisión más reciente del host ESXi 7.0U3 o las versiones posteriores y ONTAP 9.14.1 o versiones posteriores.</block>
   <block id="a585389d21dd9fbdbdc15072bd5d7010" category="list-text">Montar un almacén de datos NFS.</block>
-  <block id="3efe2db5c0b83bc2774d6061359381ed" category="list-text">Establezca los valores de la configuración del host DataMover.HardwareAcceleratedMove, DataMover.HardwareAcceleratedInit y VMFS3.HardwareAcceleratedLocking en “1”. Para definir estos valores automáticamente, aplique los ajustes recomendados del host EXSi. Consulte <block ref="a13757a488cc72436349db8983ce6613" category="inline-link-macro-rx"></block>.</block>
-  <block id="957daa20d20cf15a7839d7e44ecdb2ab" category="list-text">Habilite la opción de vstorage en la máquina virtual de almacenamiento (SVM) mediante el comando vserver nfs modify -vserver vserver vserver_NAME -vstorage Enabled.</block>
-  <block id="d5676260c3a3d58c4d9ebd79f3558bac" category="list-text">Asegúrese de tener las versiones de parches más recientes de vSphere 7.0U3.</block>
-  <block id="ebfe914a124eb1ec0cc1d8f6d6c420cb" category="list-text">VSphere 8.x es compatible con el plugin VAAI NFS de NetApp 2,0.1(compilación 16).</block>
   <block id="dbf218ab7bc36005b7fdd93dda1f6eda" category="list-text">Selecciona *Atajos* &gt; *Herramientas NetApp ONTAP* en la sección de plug-ins.</block>
   <block id="0e57b7b27807ae2427ad1a654eca765e" category="list-text">Selecciona *Configuración* &gt; *Herramientas de VAAI NFS*.</block>
   <block id="42e4695fefd280ddc3a6f11124586510" category="list-text">Cuando el complemento VAAI se cargue en vCenter Server, seleccione *Cambiar* en la sección *Versión existente*. Si no se carga un complemento VAAI en vCenter Server, seleccione el botón *Cargar*.</block>
   <block id="0aa364b40943456fe1d59c4a4a6ee32d" category="list-text">Busque y seleccione el<block ref="74f7b54ea713d9f5b69839982911bbf7" prefix=" " category="inline-code"></block> archivo y seleccione *Cargar* para cargar el archivo en las herramientas de ONTAP.</block>
   <block id="75650b415bb2c723c71117c59992e489" category="list-text">Seleccione *Instalar en el HOST ESXi*, seleccione el host ESXi en el que desea instalar el plugin VAAI NFS y, a continuación, seleccione *Instalar*.</block>
   <block id="681ca77b2652713f7e6d867f281733ec" category="paragraph">Solo se muestran los hosts ESXi elegibles para la instalación del plugin. Puede supervisar el progreso de la instalación en la sección Tareas recientes de vSphere Web Client.</block>
-  <block id="4969bf5d68bb071342161a9b29a23f5c" category="list-text">Debe reiniciar manualmente el host ESXi después de que finalice la instalación.</block>
   <block id="d15e664257aa2207434ef9543a593a8d" category="paragraph">Cuando el administrador de VMware reinicia el host ESXi, las herramientas de ONTAP para VMware vSphere detectan y habilitan automáticamente el plugin de NFS VAAI.</block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">El futuro</block>
   <block id="90ba1578c2c367413063e7228d8586b5" category="paragraph">Después de instalar el plugin VAAI de NFS y reiniciar el host ESXi, debe configurar las políticas de exportación de NFS correctas para la descarga de copia de VAAI. Al configurar VAAI en un entorno NFS, configure las reglas de política de exportación teniendo en cuenta los siguientes requisitos:</block>
@@ -2171,4 +2160,7 @@
   <block id="76dc960090031506bd84c78f38fe040e" category="paragraph">Después de la actualización, si el estado de cumplimiento de la máquina virtual es obsoleto, vuelva a aplicar la política de almacenamiento siguiendo los pasos siguientes:</block>
   <block id="0f4e59ab0634b5a1f97823bc94b0f039" category="paragraph">El estado de cumplimiento en *Cumplimiento de la política de almacenamiento de VM* se muestra como *desfasado*.</block>
   <block id="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="list-text"><block ref="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="inline-link-macro-rx"></block></block>
+  <block id="395ddb6ca1b9948e32145f8fa1a9201e" category="paragraph">Establece los siguientes parámetros en los valores predeterminados:</block>
+  <block id="0882ef7c28701c98bdd62f72da8634a7" category="list-text">Asegúrese de que tiene el host ESXi y la revisión más reciente de vSphere 7.0U3 o versiones posteriores, y de ONTAP 9.14.1 o versiones posteriores.</block>
+  <block id="2bf603021962a26e3bcb2bea93110c9f" category="list-text">Reinicie el host ESXi manualmente después de la instalación.</block>
 </blocks>

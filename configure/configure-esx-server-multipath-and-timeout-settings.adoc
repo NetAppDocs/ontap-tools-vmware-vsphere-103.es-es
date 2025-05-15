@@ -50,23 +50,14 @@ Puede configurar los siguientes valores en un host ESXi:
 
 === Configuración del adaptador de HBA/CNA
 
-Configura los ajustes de tiempo de espera recomendados del adaptador de bus de host para los sistemas de almacenamiento de NetApp.
+Establece los siguientes parámetros en los valores predeterminados:
 
-|===
-| Parámetros | Definir este valor en... 
-
-
-| Disk.QFullSampleSize | 32 para todas las configuraciones. Si configura este valor, se evitan los errores de I/O. 
-
-
-| Disk.QFullThreshold | 8 para todas las configuraciones. Si configura este valor, se evitan los errores de I/O. 
+* Disk.QFullSampleSize
+* Disk.QFullThreshold
+* Tiempos de espera de FC HBA de Emulex
+* Tiempos de espera de HBA FC de QLogic
 
 
-| Tiempos de espera de FC HBA de Emulex | Valor predeterminado. 
-
-
-| Tiempos de espera de HBA FC de QLogic | Valor predeterminado. 
-|===
 
 
 === Configuración DE MPIO
