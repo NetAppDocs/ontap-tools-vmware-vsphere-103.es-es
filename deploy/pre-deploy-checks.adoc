@@ -60,10 +60,10 @@ Utilice la siguiente hoja de datos para recopilar la información requerida para
 | Requisito | Su valor 
 
 
-| Dirección IP de la aplicación de herramientas de ONTAP |  
+| Dirección IP de la aplicación ONTAP Tools. Esta es la dirección IP para acceder a la interfaz web de ONTAP Tools. |  
 
 
-| Dirección IP de interconexión de nodo para la comunicación interna |  
+| Dirección IP virtual de las herramientas ONTAP para comunicación interna. Esta dirección IP se utiliza para la comunicación interna en una configuración con varias instancias de las herramientas ONTAP. Esta dirección IP no debe coincidir con la dirección IP de la aplicación de las herramientas ONTAP. |  
 
 
 | Nombre de host DNS para el primer nodo |  
@@ -78,7 +78,7 @@ Utilice la siguiente hoja de datos para recopilar la información requerida para
 | Dominio de búsqueda DNS |  
 
 
-| La dirección IPv4 del nodo principal |  
+| Dirección IPv4 del primer nodo. Es una dirección IPv4 única para la interfaz de administración de nodos en la red de administración. |  
 
 
 | Máscara de subred para la dirección IPv4 |  

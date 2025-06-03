@@ -11,7 +11,7 @@ summary: Añada instancias de vCenter Server a herramientas de ONTAP para VMware
 
 
 [role="lead"]
-Añada instancias de vCenter Server a herramientas de ONTAP para VMware vSphere para configurar, gestionar y proteger sus almacenes de datos virtuales en el entorno de vCenter Server.
+Añada instancias de vCenter Server a herramientas de ONTAP para VMware vSphere para configurar, gestionar y proteger sus almacenes de datos virtuales en el entorno de vCenter Server. Cuando agrega varias instancias de vCenter Server, se requieren certificados de CA personalizados para una comunicación segura entre las herramientas de ONTAP y cada vCenter Server.
 
 *Acerca de esta tarea*
 
