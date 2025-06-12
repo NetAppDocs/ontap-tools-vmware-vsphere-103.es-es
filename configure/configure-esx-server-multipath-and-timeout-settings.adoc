@@ -67,6 +67,9 @@ La configuración de MPIO define las rutas preferidas para los sistemas de almac
 En entornos de alto rendimiento, o cuando esté probando el rendimiento con un único almacén de datos LUN, considere la posibilidad de cambiar la configuración del equilibrio de carga de la política de selección de ruta (PSP) round-robin (VMW_PSP_RR) de la configuración de IOPS predeterminada de 1000 a un valor de 1.
 
 
+NOTE: La configuración de MPIO no se aplica a los protocolos NVMe, NVMe/FC y NVMe/TCP.
+
+
 
 === Configuración de NFS
 
