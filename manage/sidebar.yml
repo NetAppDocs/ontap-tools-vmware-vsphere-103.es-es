@@ -7,6 +7,8 @@ entries:
   url: "/configure/dashboard-overview.html"
 - title: Interfaz de usuario del gestor de herramientas de ONTAP
   url: "/configure/manager-user-interface.html"
+- title: Comprender los igroups y las políticas de exportación
+  url: "/manage/igroup-workflow.html"
 - title: Habilite herramientas de ONTAP para los servicios de VMware vSphere
   url: "/manage/enable-services.html"
 - title: Cambie la configuración de las herramientas de ONTAP para VMware vSphere
